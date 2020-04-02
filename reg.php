@@ -10,7 +10,7 @@
 	<title>Registration Panel</title>
 </head>
 <body>
-	<nav class="navbar navbar-expand bg-dark">
+	<nav class="navbar fixed-top bg-dark">
 		<ul class="navbar-nav">
 			<li class="nav-item active">
 				<a href="#home" class="nav-link">Home</a>
@@ -37,7 +37,7 @@
 				<div class="form-group">
 					<label id="id"></label>
 					<form>
-						<div class="form-row">
+						<div class="form-row"> 
 						<div class="form-group col-md-2">
 					      <label for="inputState">Role</label>
 					      <select id="inputState" class="form-control">
