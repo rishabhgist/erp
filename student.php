@@ -1,65 +1,79 @@
 <?php include 'includes/function.php'; ?>
 
+
 <?php 
 
+include 'includes/header.php';
+include 'includes/nav.php';
 
  ?>
-
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-
-	<title>Student Name</title>
-</head>
-<body>
-	<nav class="navbar fixed-top navbar-expand">
-		<ul class="navbar-nav">
-			<li class="nav-item">
-			<img src="img/profile.jpg" class="profilePicNav">
-			</li>
-			<li class="nav-item active">
-				<a href="#home" class="nav-link">HOME</a>
-			</li>
-			<li class="nav-item">
-				<a href="#home" class="nav-link">NOTICE</a>
-			</li>
-			<li class="nav-item">
-				<a href="#home" class="nav-link">LIBRARY</a>
-			</li>
-			<li class="nav-item">
-				<a href="#home" class="nav-link">Q/A</a>
-			</li>
-			
-		</ul>
-	</nav>
 	<div class="coverContainer">
 		<img src="img/cover.jpg" class="coverImage center-fit">
-		<h3 class="head">Hello, Jhon</h3>
+		<h3 class="head">Hello, <?php echo $fname; ?></h3>
 		<h3 class="headDate">23 July, 2020 </h3>
+		<img src="img/profile.png" class="profilePic">
+
 	</div>	
 	<br>
-	<div class="container">
-		<img src="img/profile.jpg" class="profilePic">
-		<a href="#">Change Profile</a><br>
-		<label>Basic Details</label>
-		<ul class="ul">
-		<li>Student ID : 2017BCA029 </li>
-		<li>Student Name : Jhon Doe</li>
-		<li>Father's Name : Jhon Wick</li>
-		<li>Date of Birth : 29 May 1999</li>
-		<li>Session form : 2017</li>
-		<li>Session to : 2020</li>
+	<div class="row" style="margin: auto;">
+		<div class="col-md-4">
+			<div class="container-profile">
+				<a href="profile.php" class="profile-link"><h3><?php echo $fname.' '.$lname; ?></h3></a>
+				<p><i class="fas fa-birthday-cake ico"></i> 7 Jan, 1999</p>
+				<p><i class="fas fa-envelope ico"></i> email@erp.com</p>
+				<p><i class="fas fa-mobile ico"></i> +91 - <span> 7988223352</span></p>
+
+				<button class="btn-profile">Edit Profile</button>
+			</div>
+		</div>
+		<div class="qa-post col-md-5">
+			<div class="post">
+			<h3>What is C Language ?</h3>
+			<p>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+
+			</p>
+				
+				<span>42</span>
+				<button class="btn-react"><i class="fas fa-thumbs-up"></i></button>
+				<button class="btn-react"><i class="fas fa-reply"></i></button> 
+
+
+			</div>	
+			<div class="post">
+			<h3>What is Java?</h3>
+			<p>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+
+			</p>
+				
+				<span>42</span>
+				<button class="btn-react"><i class="fas fa-thumbs-up"></i></button>
+				<button class="btn-react"><i class="fas fa-reply"></i></button>
+
+			</div>
+			<div class="post">
+			<h3>What is Python?</h3>
+			<p>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+
+			</p>
+				
+				<span>42</span>
+				<button class="btn-react"><i class="fas fa-thumbs-up"></i></button>
+				<button class="btn-react"><i class="fas fa-reply"></i></button>
+
+			</div>
+
+		</div>
+		<div class="col-md-2">
+		<h5>Trending Post</h5>
+		<ul>
+			<li>What is C ?</li>
+			<li>Whats is Java?</li>
+			<li>What is Python</li>
 		</ul>
-		<label>Communication Details</label>
-		<ul class="ul">
-		<li>Mobile : 7983294650 </li>
-		<li>Address : 21 Gagan Enclave, Rohta Road, Meerut </li>
-		<li>Email : jhodoe@gmail.com</li>
-		<li>Course : BCA </li>
-		<li>Password : <a href="#">Change Passowrd</a></li>
-		<li>Session to : 2020</li>
-		</ul>
+		</div>
 	</div>
-</body>
-</html>
+
+<?php include 'includes/footer.php'; ?>

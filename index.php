@@ -1,37 +1,32 @@
-<!--
+<?php include 'includes/function.php'; ?>
+<?php 
 
-	-> Project : Enterprise Resource Planning
-	-> Author :	Rishabh Gist
-	-> Information : Readme File
-
-
- -->
-
+	if(isset($_POST['login'])) {
+	 	
+	 	login();
+	 }
 
 
-<?php include 'includes/db.php'; ?>
-<?php include 'includes/header.php'; ?>
+?>
+<html>
+<head>
 
-<?php include 'includes/nav.php'; ?>
-
-  	<div class="container content"> 
-  	<div class="row">
-		<div class="col">
-			<div class="head">
-			 <h1 id="heading">Welcome to erp</h1>
-			 <img src="img/emp.png" class="head-img">
-			 <p class="head-note">
-				 <i>
-				 	<span>*</span>
-				 	Please contact admin for Signup and other issues. 
-				 </i>
-			</p>
-			</div>
-		</div> 
-
-			<?php include 'includes/loginForm.php'; ?>  
-  	</div>
-   </div><!--conainer ends -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
 
-<?php include 'includes/footer.php'; ?>
+	<title>Login Form</title>
+</head>
+<body>
+<div class="conatiner-test">
+	<h1>Login</h1>
+
+	<h3><?php echo $_SESSION['message'] ?></h3>
+	<form class="form" action="login.php" method="post" autocomplete="off">
+		<input type="text" name="username" placeholder="Enter username">
+		<input type="password" name="password" placeholder="Enter password">
+		<button class="button" name="login" >Login</button>
+	</form>
+</div>
+</body>
+</html>

@@ -14,13 +14,7 @@ h1{
 	font-family: sans-serif;
 	color: #FF4B2B;
 }
-input {
-	background-color: #eee;
-	border: none;
-	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
-}
+
 form {
 	
 	align-items: center;
@@ -50,7 +44,7 @@ button:active {
 button:focus {
 	outline: none;
 }
-.conatiner{
+.conatiner-login{
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;

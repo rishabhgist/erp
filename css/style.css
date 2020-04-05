@@ -1,9 +1,24 @@
+body{
 
-h3{
+	width: 100%;
+	height: 100%;
+	margin: 0;
 
-	color: blue;
+}
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	width: 100%;
+}
+button:active {
+	transform: scale(0.95);
 }
 
+button:focus {
+	outline: none;
+}
 
 .container-test{
 
@@ -17,6 +32,9 @@ h3{
 	padding: 20px 30px;
 
 }
+ul{
+	width: 100%;
+}
 form{
 
 	text-align: center;
@@ -24,6 +42,7 @@ form{
 .navbar{
 	background-color: #16a5f4;
 	box-shadow: 3px 8px 6px -8px black;
+	padding: 0;
 }
 .nav-link{
 
@@ -31,19 +50,12 @@ form{
 }
 .nav-link:hover{
 
-	color: #16a5f4;
-	background-color: #fff;
-	opacity: 0.6;
-	border-radius: 30px;
+	color: #fff;
+	background-color: none;
 }
 .buttonNext{
 
 	width: 50px;
-}
-button{
-
-	border: none;
-	background:none;
 }
 .display{
 	display: none;
@@ -53,27 +65,41 @@ ul{
 }
 .profilePic{
 
-	width: 110px;
+	position: absolute;
+	bottom: -60px;
+	left: 120px;
+	width: 150px;
 	border-radius: 50%;
-	
-
+	z-index: 1;
+	border:5px solid #fff;
 }
-.profilePicNav{
 
+.profilePicNav{
 	width: 30px;
 	vertical-align: middle;
 	border-radius: 50%;
 }
+.profile-link{
+
+	text-decoration: none;
+	color: #000;
+}
+.profile-link:hover{
+
+	text-decoration: none;
+	color: #16a5f4;
+}
+
 .coverContainer{
 
-margin: auto;
-position: relative;
-
+	margin: auto;
+	position: relative;
 }
+
 .center-fit{
       max-width: 100%;
-       max-height: 100vh;
-       margin: auto;
+      max-height: 100vh;
+      margin: auto;
   }
 .head{
 	position: absolute;
@@ -93,4 +119,85 @@ position: relative;
 	color: #fff;
 	text-shadow: 1px 1px #000;
 
+
 }
+.container-profile{
+
+	margin: 10% 10% 5% 8%;
+	height: 500px;
+	width: 300px;
+	padding-left: 30px;
+	border:2px solid #16a5f4;
+	border-radius: 30px;
+	padding-top: 10px;
+
+}
+.btn-profile{
+
+	width:120px;
+	height: 40px;
+	border-radius: 30px;
+	border:2px solid #16a5f4;
+	background:none;
+	color: #16a5f4;
+}
+.btn-profile:hover{
+
+	background-color: #16a5f4;
+	color: #fff;
+	font-size: 1.5rem bold;
+}
+footer{
+
+	background-color: #16a5f4;
+	color: #fff;
+	height: 40px;
+	margin: 0;
+}
+
+.container-footer-made{
+	align-content: right;
+	text-align: right;
+}
+.qa-post{
+
+	margin: 2% 0%;
+	padding: 0;
+}
+
+.post{
+	margin: 10px;
+
+}
+
+.navbar-nav{
+	margin-left: 10px;
+}
+.nav-profile{
+	align-content: right;
+	text-align: right;
+	display: -ms-flexbox;
+	  display: flex;
+	  -ms-flex-direction: column;
+	  flex-direction: column;
+	  padding-left: 0;
+	  margin-bottom: 0;
+	  list-style: none;
+}
+.ico{
+	margin-right: 6px; 
+}
+.btn-react{
+
+	background: none;
+	border: none;
+	background-color: none;
+
+}
+.btn-react:hover{
+
+	background: none;
+	color: #16a5f4;
+	
+}
+
