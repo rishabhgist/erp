@@ -18,7 +18,7 @@
         <div class="container"> 
         <div class="row">
           <div class="container-footer col-md-6">
-            <span>&copy; 2020 ERP</span>
+            <span>&copy; 2020 Enterprise Resource Planning</span>
           </div>
           <div class="container-footer-made col-md-6">
             <span>Made With <i class="fas fa-heart" style="color: #fff;"></i> by Rishabh Gist </span>        

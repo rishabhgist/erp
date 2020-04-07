@@ -1,11 +1,10 @@
-<?php include 'includes/function.php'; ?>
-<?php 
-
+<?php include 'includes/function.php';
+	
+	$con = mysqli_connect("localhost","root","","erp");
 	if(isset($_POST['login'])) {
-	 	
-	 	login();
-	 }
-
+		
+		login();
+	}
 
 ?>
 <html>
@@ -26,14 +25,14 @@
 		<div class="container-login">
 				<center><h3 class="login-h3">Login to ERP </h3></center>
 
-					<form id="role" class="form">
+					<form id="role" class="form" method="POST">
 						<div class="form-group">
-							<form>
+							<form >
 									<label class="placeholder">Username</label>
 									<input type="text" name="username" class="input form-control" autofocus>
 									<label class="placeholder">Password </label>
 									<input type="password" name="password"  class="input form-control" autofocus>
-									<center><button class="btn-profile" id="login">Login</button></center>
+									<center><input type="submit" name="login" class="btn-profile" value="Login"></center>
 							</form>
 						</div>
 						<div class="forget-div">

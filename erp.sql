@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 02, 2020 at 01:11 PM
+-- Generation Time: Apr 07, 2020 at 06:20 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -25,6 +25,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `post`
+--
+
+DROP TABLE IF EXISTS `post`;
+CREATE TABLE IF NOT EXISTS `post` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `posted_by` varchar(100) NOT NULL,
+  `post_title` varchar(100) NOT NULL,
+  `post_body` varchar(300) NOT NULL,
+  `post_date` varchar(200) NOT NULL,
+  `post_like` int(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `posted_by`, `post_title`, `post_body`, `post_date`, `post_like`) VALUES
+(1, '2017BCA029', 'What is C?', 'C is a general-purpose, procedural computer programming language supporting structured programming, lexical variable scope, and recursion, while a static type system prevents unintended operations.', '22/03/2020', 45),
+(2, '2017BCA029', 'What is Java?', 'Java is a general-purpose programming language that is class-based, object-oriented, and designed to have as few implementation dependencies as possible', '23/03/2020', 43),
+(3, '2017BCA029', 'What is Python?', 'Python is an interpreted, high-level, general-purpose programming language. Created by Guido van Rossum and first released in 1991, Python\'s design philosophy emphasizes code readability with its notable use of significant whitespace', '25/03/2020', 56);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `studentdata`
 --
 
@@ -33,10 +59,23 @@ CREATE TABLE IF NOT EXISTS `studentdata` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
   `loginId` varchar(100) NOT NULL,
   `courseId` varchar(100) NOT NULL,
-  `name` varchar(200) NOT NULL,
+  `fname` varchar(200) NOT NULL,
+  `lname` varchar(100) NOT NULL,
+  `father` varchar(100) NOT NULL,
+  `mother` varchar(100) NOT NULL,
+  `emailID` varchar(100) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `dob` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginId` (`loginId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `studentdata`
+--
+
+INSERT INTO `studentdata` (`id`, `loginId`, `courseId`, `fname`, `lname`, `father`, `mother`, `emailID`, `mobile`, `dob`) VALUES
+(1, '2017BCA029', 'BCA', 'Praveen', 'Kumar', 'Narendra Modi', 'Indra Gandhi', 'pkcool786@gmail.com', '7983294650', '15/03/1999');
 
 -- --------------------------------------------------------
 
@@ -49,10 +88,22 @@ CREATE TABLE IF NOT EXISTS `teacherdata` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
   `loginId` varchar(200) NOT NULL,
   `courseId` varchar(100) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `fname` varchar(100) NOT NULL,
+  `lname` varchar(100) NOT NULL,
+  `father` varchar(100) NOT NULL,
+  `mother` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `mobile` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginId` (`loginId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `teacherdata`
+--
+
+INSERT INTO `teacherdata` (`id`, `loginId`, `courseId`, `fname`, `lname`, `father`, `mother`, `email`, `mobile`) VALUES
+(1, '2017BCA020', 'BCA', 'Divya', 'Tiwari', 'Sadiq Ansari', 'Komal Chaudhary', 'divyatiwari@erp.com', '7017226628');
 
 -- --------------------------------------------------------
 
@@ -68,14 +119,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginId` (`loginId`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `loginId`, `password`, `role`) VALUES
-(1, 'admin', 'admin', 'admin');
+(1, 'admin', 'admin', 'admin'),
+(2, '2017BCA029', 'student', 'student'),
+(3, '2017BCA020', 'teacher', 'teacher');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

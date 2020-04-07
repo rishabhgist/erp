@@ -1,4 +1,3 @@
-<?php include 'includes/function.php'; ?>
 
 <div class="col-md-2">
 		<h5>Trending Post</h5>

@@ -1,4 +1,3 @@
-<?php include 'includes/function.php'; ?>
 
 <div class="row" style="margin: auto;">
 		<div class="col-md-4">

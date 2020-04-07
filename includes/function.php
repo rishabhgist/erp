@@ -5,19 +5,7 @@ $_SESSION['message'] ='';
 
 $con = mysqli_connect("localhost","root","","erp");
 
-$fname ="Jhon";
-$lname = "Doe";
-
-// function role(){
-
-//     $con = mysqli_connect("localhost","root","","erp");
-//     $role = "SELECT * FROM login WHERE role";
-
-
-// }
-
-
-/*function logindetails(){
+function login(){
         $con = mysqli_connect("localhost","root","","erp");
         $user = ($_POST['username']);
         $pass = ($_POST['password']);
@@ -28,7 +16,7 @@ $lname = "Doe";
         $student = "student";
         $teacher = "teacher";
 
-    $query = "SELECT * FROM login WHERE username = '$user' && password = '$pass'";
+    $query = "SELECT * FROM users WHERE loginId = '$user' && password = '$pass'";
     $result = mysqli_query($con, $query);
     $val = mysqli_num_rows($result);
     $role =  mysqli_fetch_assoc($result);
@@ -36,7 +24,6 @@ $lname = "Doe";
     // redirect roles 
 
     if($val == 1) {
-        session_start();
         if ( $role['role'] == $admin ) {
             // admin role
             header('location:admin.php');   
@@ -58,5 +45,5 @@ $lname = "Doe";
     }
 }
 
-*/
+
 ?>
