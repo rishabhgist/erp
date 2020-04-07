@@ -1,43 +1,53 @@
 body{
-
-	width: 100%;
-	height: 100%;
-	margin: 0;
+	font-family: 'Ubuntu', sans-serif;
+  position: relative;
+  min-height: 100%;
+  min-height: 100vh;
 
 }
-input {
+.bg{
+
+  background-color: #f5f5f5;
+
+}
+.input{
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
-	margin: 8px 0;
-	width: 100%;
+	margin: 10px 0;
+	border-radius: 10px;
+
+}
+.input:active{
+
+	outline: none;
 }
 button:active {
 	transform: scale(0.95);
+	outline: none;
 }
 
 button:focus {
 	outline: none;
 }
 
-.container-test{
+.container-login{
 
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	margin: auto;
-	width: 568px;
-	min-height: 480px;
-	margin-top: 30px;
-	text-align: center;
+	width: 400px;
+	min-height: 450px;
 	padding: 20px 30px;
-
+	margin: auto;
+	
 }
 ul{
 	width: 100%;
 }
-form{
+.form{
+	background-color: #fff;
+	border: 1px solid #d6d6d6;
+	border-radius: 10px;
+	padding:20px;
 
-	text-align: center;
 }
 .navbar{
 	background-color: #16a5f4;
@@ -127,9 +137,10 @@ ul{
 	height: 500px;
 	width: 300px;
 	padding-left: 30px;
-	border:2px solid #16a5f4;
-	border-radius: 30px;
+	padding-right: 30px;
+	border:1px solid #d6d6d6;
 	padding-top: 10px;
+	background-color: #fff;
 
 }
 .btn-profile{
@@ -147,12 +158,16 @@ ul{
 	color: #fff;
 	font-size: 1.5rem bold;
 }
+#login{
+	margin-top: 20px;
+}
 footer{
 
 	background-color: #16a5f4;
 	color: #fff;
-	height: 40px;
-	margin: 0;
+	height: 50px;
+	position: absolute;
+ 	right: 0;bottom:0;left:0;
 }
 
 .container-footer-made{
@@ -163,10 +178,20 @@ footer{
 
 	margin: 2% 0%;
 	padding: 0;
+
+}
+.hr-post{
+
+	width: 90%;
+
 }
 
 .post{
-	margin: 10px;
+	margin: 10px 0;
+	padding:10px 15px;
+	background-color: #fff;
+	border:1px solid #d6d6d6;
+	
 
 }
 
@@ -200,4 +225,52 @@ footer{
 	color: #16a5f4;
 	
 }
+.login-img{
 
+	width: 50px;
+	margin-top:3%;
+	border-radius: 50%;
+
+}
+.brand{
+	text-align: center;
+}
+.forget-div{
+	background: #fff;
+	text-align: center;
+	margin top:5px;
+	border: 1px solid #d6d6d6;
+	padding: 10px;
+	border-radius: 5px;
+}
+.basic-details{
+
+	margin:8%; 
+
+}
+.badge{
+
+	margin-bottom: 10px;
+}
+.login-h3{
+	font-family:'Quicksand', sans-serif;
+	font-size: 1.5rem;
+}
+.posted-name{
+	font-size: 1.2rem;
+	margin-left: 5px;
+
+}
+.post-time{
+	margin-left: 5px;
+	line-height: 2px;
+	font-size: 0.7rem;
+}
+.post-profile{
+	width: 40px;
+}
+.time-ico{
+
+	width: 5px;
+	margin-right: 10px;
+}

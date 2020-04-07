@@ -17,4 +17,4 @@ $lname = 'Doe';
 
     <title><?php echo $fname.' '.$lname ?></title>
 </head>
-<body>
+<body class="bg">

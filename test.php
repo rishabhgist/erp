@@ -43,7 +43,7 @@
 					<button onclick="changeForm();"><img src="img/icon.png" class="buttonNext"></button>
 				</form>
 			</div>
-		</form>
+		
 		<form id="detail" class="display">
 				<div class="form-group">
 					

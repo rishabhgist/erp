@@ -5,6 +5,9 @@ $_SESSION['message'] ='';
 
 $con = mysqli_connect("localhost","root","","erp");
 
+$fname ="Jhon";
+$lname = "Doe";
+
 // function role(){
 
 //     $con = mysqli_connect("localhost","root","","erp");
@@ -14,7 +17,7 @@ $con = mysqli_connect("localhost","root","","erp");
 // }
 
 
-function login(){
+/*function logindetails(){
         $con = mysqli_connect("localhost","root","","erp");
         $user = ($_POST['username']);
         $pass = ($_POST['password']);
@@ -55,5 +58,5 @@ function login(){
     }
 }
 
-
+*/
 ?>

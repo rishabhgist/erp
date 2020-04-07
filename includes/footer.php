@@ -11,7 +11,7 @@
             <span>&copy; 2020 ERP</span>
           </div>
           <div class="container-footer-made col-md-6">
-            <span>Made With <i class="fas fa-heart" style="color: red;"></i> by Rishabh Gist </span>        
+            <span>Made With <i class="fas fa-heart" style="color: #fff;"></i> by Rishabh Gist </span>        
           </div>
      </div>
      </div>
