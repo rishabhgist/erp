@@ -4,14 +4,23 @@
                 <a href="#home" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="#home" class="nav-link">NOTICE</a>
+                <a href="notice.php" class="nav-link">NOTICE</a>
             </li>
             <li class="nav-item">
-                <a href="#home" class="nav-link">LIBRARY</a>
+                <a href="library.php" class="nav-link">LIBRARY</a>
             </li>
             <li class="nav-item">
-                <a href="#home" class="nav-link">Q/A</a>
+                <a href="qna.php" class="nav-link">Q/A</a>
             </li>
+            <li class="nav-item">
+                <a href="timetable.php" class="nav-link">Timetable</a>
+            </li><li class="nav-item">
+                <a href="#" class="nav-link">teacher</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">student</a>
+            </li>
+
             
         </ul>
         <ul class="col-md-2 nav-profile">
@@ -20,7 +29,7 @@
                     <img src="img/profile.png" class="profilePicNav">
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Profile</a>
+                  <a class="dropdown-item" href="profile.php">Profile</a>
                   <a class="dropdown-item" href="#">Helpdesk</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">LogOut</a>
@@ -28,3 +37,5 @@
              </li>
           </ul>
     </nav>
+  <body class="bg">
+  <div class="page">

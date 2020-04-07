@@ -4,9 +4,8 @@
 			<div class="col-md-1">
 			<img src="img/profile.png" class="post-profile">
 			</div>
-			<div class="col-md-11">			
+			<div class="col-md-11">	
 			<a href="user.php" class="posted-name">Jhon Doe</a><br>
-			
 			<span class="post-time">Just Now</span>
 			</div>
 			</div>

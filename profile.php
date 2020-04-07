@@ -54,7 +54,7 @@ include 'includes/nav.php';
         <span>Educational Details Details</span>
     </div>
     	<div class="col-md-2">
-    		<button class="btn-profile ">Edit Details</button>
+    		<button class="btn-profile">Edit Details</button>
     	</div>
     </div>
 	</div>

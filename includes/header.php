@@ -11,6 +11,7 @@ $lname = 'Doe';
 
 <html>
 <head>
+	<link rel="icon" type="image/png" href="img/fav.png">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -18,4 +19,4 @@ $lname = 'Doe';
 
     <title><?php echo $fname.' '.$lname ?></title>
 </head>
-<body class="bg">
+

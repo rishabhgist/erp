@@ -6,15 +6,7 @@
 include 'includes/header.php';
 include 'includes/nav.php';
 
- ?>
-	<div class="coverContainer">
-		<img src="img/cover.jpg" class="coverImage center-fit">
-		<h3 class="head">Hello, <?php echo $fname; ?></h3>
-		<h3 class="headDate">23 July, 2020 </h3>
-		<img src="img/profile.png" class="profilePic">
-
-	</div>	
-	<br>
+?>		<?php include 'includes/banner.php'; ?>
 		<?php include 'includes/profile.php'; ?>
 		<?php include 'includes/post.php'; ?>
 		<?php include 'includes/trending.php'; ?>
