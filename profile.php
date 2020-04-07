@@ -8,37 +8,54 @@ include 'includes/nav.php';
 ?>
 
 <div class="basic-details">
-	<div class="row">
 	<div class="profile-div">
-	<!-- <div class="col-md-10"> -->
-        <span>Basic Details</span>
- <!--    </div> -->
-<!-- 
+	<div class="row">
+	<div class="col-md-10">
+        <span class="profile-heading">Basic Details</span>
+    </div>
     	<div class="col-md-2">
     		<button class="btn-profile ">Edit Details</button>
-    	</div> -->
+    	</div>
     </div>
-   
+	</div>
+    <div>
+
         	<!-- Details Here -->
         </div>
-	</div>
  </div>
 
- <div class="basic-details detail">
+ <div class="basic-details">
 	<div class="profile-div">
-        <span>Educational Details</span>
-        <div>
-        	<!-- details here -->
-        </div>
+	<div class="row">
+	<div class="col-md-10">
+        <span class="" >Communication Details</span>
+    </div>
+    	<div class="col-md-2">
+    		<button class="btn-profile">Edit Details</button>
+    	</div>
+    </div>
 	</div>
+    <div>
+
+        	<!-- Details Here -->
+        </div>
  </div>
-<div class="basic-details detail">
+<div class="basic-details">
 	<div class="profile-div">
-        <span>Communication Details</span>
-        <div>
-        	<!-- details here -->
-        </div>
+	<div class="row">
+	<div class="col-md-10">
+        <span>Educational Details Details</span>
+    </div>
+    	<div class="col-md-2">
+    		<button class="btn-profile ">Edit Details</button>
+    	</div>
+    </div>
 	</div>
+    <div>
+
+        	<!-- Details Here -->
+        </div>
  </div>
+
 
 <?php include 'includes/footer.php'; ?>
