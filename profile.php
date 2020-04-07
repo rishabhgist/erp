@@ -9,19 +9,26 @@ include 'includes/nav.php';
 
 <div class="basic-details">
 	<div class="profile-div">
-	<div class="row">
-	<div class="col-md-10">
-        <span class="profile-heading">Basic Details</span>
-    </div>
-    	<div class="col-md-2">
-    		<button class="btn-profile ">Edit Details</button>
-    	</div>
-    </div>
+		<div class="row">
+		<div class="col-md-10">
+	        <span class="profile-heading">Basic Details</span>
+	    </div>
+	    	<div class="col-md-2">
+	    		<button class="btn-profile ">Edit Details</button>
+	    	</div>
+	    </div>
 	</div>
-    <div>
+	<div class="profile-detail">
+		<div class="row">
+		<div class="col-md-2">
+		<img src="img/profile.png" class="profile-pic">
+	    </div>
+	    	<div class="col-md-10">
 
-        	<!-- Details Here -->
-        </div>
+	    	</div>
+	    </div>
+	</div>
+
  </div>
 
  <div class="basic-details">
