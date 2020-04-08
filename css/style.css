@@ -287,7 +287,7 @@ footer{
 	background-color: #fff;
 	border: 1px solid #d6d6d6;
 	height: 500px ;
-	width: 900px;
+	width: 1000px;
 	margin:auto;
 	margin-top: 5%
 
@@ -302,7 +302,6 @@ footer{
 	width: 100%;
 	padding: 10px 20px;
 	border-bottom: 1px solid #d6d6d6;
-
 	font-size: 1.2rem;
 	font-family:'Quicksand', sans-serif;
 	text-transform: uppercase;
@@ -321,6 +320,7 @@ footer{
 	width: 100%;
 	padding: 10px 20px;
 	text-transform: uppercase;
+	margin-top: 30px;
 }
 .form-group{
 	margin-top: 3%;
@@ -387,4 +387,64 @@ margin-left: 30px;
 .footer-link:hover{
 
 text-decoration: none;
+}
+.post-details{
+
+	background-color: #fff;
+	border: 1px solid #d6d6d6;
+	height: 500px ;
+	width: 900px;
+	margin:auto;
+	margin-top: 5%
+}
+.title{
+	margin: 8px 0;
+	font-weight: bold;
+
+}
+.data{
+
+	margin: 8px 0;
+}
+.btn-change{
+	width: auto;
+	margin: 10px 20px;
+}
+.container-com{
+
+	padding: 20px 50px;
+	text-transform: uppercase;
+}
+.data.email{
+
+	margin: 8px 0;
+	text-transform: lowercase;
+}
+.container-edu{
+	padding: 20px 50px;
+	text-transform: uppercase;
+}
+.reg-detail{
+
+	background-color: #fff;
+	padding: 10px 20px;
+}
+.registration-details{
+
+	background-color: #fff;
+	border: 1px solid #d6d6d6;
+	height: auto;
+	width: 1000px;
+	margin:auto;
+	margin-top: 5%
+}
+.mar-10{
+	margin: 10px;
+}
+.mar-20{
+	margin: 20px;
+}
+.edu-container{
+
+	padding: 20px 20px;
 }

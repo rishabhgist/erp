@@ -1,4 +1,3 @@
-<?php include 'includes/function.php'; ?>
 
 
 <?php 
@@ -9,7 +8,7 @@ include 'includes/nav.php';
 ?>		
 
 <div>
-	<div class="basic-details">
+	<div class="post-details">
 	<div class="profile-div">
 		
 	        <span class="profile-heading">Post Your Question</span>

@@ -1,152 +1,150 @@
-<?php include 'includes/function.php'; ?>
-
-<?php  ?>
-
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-
-	<title>Registration Panel</title>
-</head>
-<body>
-	<nav class="navbar fixed-top bg-dark">
-		<ul class="navbar-nav">
-			<li class="nav-item active">
-				<a href="#home" class="nav-link">Home</a>
-			</li>
-			<li class="nav-item">
-				<a href="#home" class="nav-link">Student</a>
-			</li>
-			<li class="nav-item">
-				<a href="#home" class="nav-link">Teacher</a>
-			</li>
-			<li class="nav-item">
-				<a href="#home" class="nav-link">Report</a>
-			</li>
-			<li class="nav-item">
-				<a href="#home" class="nav-link">LogOut</a>
-			</li>
-	
-		</ul>
-	</nav>
-	<div class="container">
-		<h3>User Register Here </h3>
-			
-			<form>
-				<div class="form-group">
-					<label id="id"></label>
-					<form>
-						<div class="form-row"> 
-						<div class="form-group col-md-2">
-					      <label for="inputState">Role</label>
-					      <select id="inputState" class="form-control">
-					        <option selected>Student</option>
-					        <option>Teacher</option>
-					      </select>
-					      </div>
-					       <div class="form-group col-md-2">
-					      <label for="inputSession">Session From</label>
-					      <select id="inputState" class="form-control">
-					        <option selected>2020</option>
-					        <option>2021</option>
-					        <option>2022</option>
-					        <option>2023</option>
-					        <option>2024</option>
-					      </select>
-					      </div >
-					      <div class="form-group col-md-2">
-					      <label for="inputSession">Session From</label>
-					      <input class="form-control" id="disabledInput" type="text" placeholder="" disabled>
-						</div>
-					</div>
-
-
-					      <!-- Student Basic Details Section -->
-					      <label>Student Basic Details </label>
-					      <div class="form-row">
-					      <div class="form-group col-md-2">
-					      	<label for="inputState">Full Name</label>
-					      	<input type="text" class="form-control" id="inputName" placeholder="Full Name">
-					      	
-					      </div>
-					       <div class="form-group col-md-2">
-					       	<label for="inputState">Father's Name</label>
-					      	<input type="text" class="form-control" id="inputFather" placeholder="Father's Name">
-					      	
-					      </div>
-					      <div class="form-group col-md-2">
-					       	<label for="inputState">Mother's Name</label>
-					      	<input type="text" class="form-control" id="inputFather" placeholder="Mother's Name">
-					  
-					      </div>
-					  </div>
-					     
-
-					<!-- Student Other Details Section  -->
-
-						<label>Communication Details</label>
-					  <div class="form-row">
-					    <div class="form-group col-md-4">
-					      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-					    </div>
-					    <div class="form-group col-md-4">
-					      <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-					    </div>
-					    <div class="form-group col-md-4">
-					      <input type="text" class="form-control" id="inputMobile" placeholder="Mobile">
-					    </div>
-					  </div>
-
-					  <!-- Address Section Here -->
-					  <label>Address</label>
-					  <div class="form-row">
-					  <div class="form-group col-md-6">
-					    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-					  </div>
-					  <div class="form-group col-md-6">
-					    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-					  </div>
-					</div>
-					  <div class="form-row">
-					    <div class="form-group col-md-6">
-					      <label for="inputCity">City</label>
-					      <input type="text" class="form-control" id="inputCity">
-					    </div>
-					    
-					    </div>
-					    <div class="form-group col-md-2">
-					      <label for="inputZip">Zip</label>
-					      <input type="text" class="form-control" id="inputZip">
-					    </div>
-					  </div>
-					  <div class="form-group">
-					    <div class="form-check">
-					      <input class="form-check-input" type="checkbox" id="gridCheck">
-					      <label class="form-check-label" for="gridCheck">
-					        Check me out
-					      </label>
-					    </div>
-					  </div>
-					  <button type="submit" class="btn btn-primary">Sign in</button>
-					</form>
-				</div>
-			</form>
-			
-	</div>
-<br>
 <?php 
 
-	// $query = "SELECT * FROM login where username = 'admin'";
-	// $result = mysqli_query($con, $query);
+include 'includes/header.php';
+include 'includes/nav.php';
 
-	// $row = mysqli_fetch_assoc($result);
+?>
 
-	// echo $row['role'];
+<form method="post" class="form-group">
+<div class="registration-details">
+	<div class="profile-div">
+	        <span class="profile-heading">Basic Details</span>
+	</div>
+	<div class="reg-detail">
+	<div class="row mar-10">
+		<div class="col-md-3">
+			<label for="fname">First Name</label>
+			<input type="text" name="fname" autofocus class="form-control">
+		</div>
+		<div class="col-md-3">
+			<label for="lname">Last Name</label>
+			<input type="text" name="lname" autofocus class="form-control">
+		</div>
+		<div class="col-md-3">
+			<label for="dob">Date of Birth</label>
+			<input type="text" name="dob" autofocus class="form-control" placeholder="dd-mm-yy">
+		</div>
+		<div class="col-md-3">
+			<label for="course">Course</label>
+			<input type="text" name="course" autofocus class="form-control">
+		</div>
+	</div>
+	<div class="row mar-10">
+		<div class="col-md-3">
+			<label for="sessionf">Session From</label>
+			<input type="text" name="sessionf" autofocus class="form-control">
+		</div>
+		<div class="col-md-3">
+			<label for="sessiont">Session To</label>
+			<input type="text" name="sessiont" autofocus class="form-control">
+		</div>
+		<div class="col-md-3">
+			<label for="father">Father's Name</label>
+			<input type="text" name="father" autofocus class="form-control">
+		</div>
+		<div class="col-md-3">
+			<label for="mother">Mother's Name</label>
+			<input type="text" name="mother" autofocus class="form-control">
+		</div>
+	</div>
 
 
 
- ?>
+ 	</div>
+ 	<div class="profile-div">
+	        <span class="profile-heading">Communication Details</span>
+	</div>
+	<div class="reg-detail">
+	<div class="row mar-10">
+		<div class="col-md-3">
+			<label for="mobile">Contact Number</label>
+			<input type="text" name="mobile" autofocus class="form-control" placeholder="Without 0 or 91">
+		</div>
+		<div class="col-md-3">
+			<label for="email">Email</label>
+			<input type="text" name="email" autofocus class="form-control" placeholder="email@erp.com">
+		</div>
+		<div class="col-md-3">
+			<label for="fatherContact">Father's Contact</label>
+			<input type="text" name="fatherContact" autofocus class="form-control" placeholder="Without 0 or 91">
+		</div>
+	</div>
+	<div class="row mar-10">
+		<div class="col-md-4">
+			<label for="address1">Address</label>
+			<input type="text" name="address1" autofocus class="form-control" placeholder="Address Line 1">
+		</div>
+		<div class="col-md-4">
+			<label for="address2">Address</label>
+			<input type="text" name="address2" autofocus class="form-control" placeholder="Address Line 2">
+		</div>
+	</div>
+</div>
+	<div class="profile-div">
+	        <span class="profile-heading">Education Details</span>
+	</div>
+	<div class="edu-container">
+	 		<div class="container">
+			<div class="row mar-10">
+	        <div class="col-md-2">
+	        	<span class="mar-10"> High School</span>
+			</div>
+			<div class="col-md-3">
+			<input type="text" name="school" autofocus class="form-control" placeholder="School/Institute">	
+			</div>
+			<div class="col-md-3">
+			<input type="text" name="board" autofocus class="form-control" placeholder="Board/University">	
+			</div>
+			<div class="col-md-3">
+			<input type="text" name="percentage" autofocus class="form-control" placeholder="Percentage">	
+			</div>
 
-</body>
-</html>
+	</div>
+	</div>
+	<div class="container">
+			<div class="row mar-10">
+	        <div class="col-md-2">
+	        	<span class="mar-10">Intermediate</span>
+			</div>
+			<div class="col-md-3">
+			<input type="text" name="school" autofocus class="form-control" placeholder="School/Institute">	
+			</div>
+			<div class="col-md-3">
+			<input type="text" name="board" autofocus class="form-control" placeholder="Board/University">	
+			</div>
+			<div class="col-md-3">
+			<input type="text" name="percentage" autofocus class="form-control" placeholder="Percentage">	
+			</div>
+
+	</div>
+	</div>
+	<div class="container">
+			<div class="row mar-10">
+	        <div class="col-md-2">
+	        	<span class="mar-10"> Graduation</span>
+			</div>
+			<div class="col-md-3">
+			<input type="text" name="school" autofocus class="form-control" placeholder="School/Institute">	
+			</div>
+			<div class="col-md-3">
+			<input type="text" name="board" autofocus class="form-control" placeholder="Board/University">	
+			</div>
+			<div class="col-md-3">
+			<input type="text" name="percentage" autofocus class="form-control" placeholder="Percentage">	
+			</div>
+			</div>
+		</div>
+			<div class="mar-20">
+			<center><button class="btn-profile">Save</button></center>
+			</div>
+			</div>
+
+</div>
+</div>
+
+
+</form>
+
+
+
+<?php include 'includes/footer.php'; ?>

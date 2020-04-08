@@ -3,7 +3,6 @@
 
   <a href="#" class="footer-link">Home</a>
   <a href="#" class="footer-link">Notice</a>
-  <a href="#" class="footer-link">Question & Answer</a>
   <a href="#" class="footer-link">Feedback</a>
   
 </div>
