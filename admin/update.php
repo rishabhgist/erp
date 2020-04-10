@@ -1,16 +1,44 @@
 <?php 
 
-include 'includes/header.php';
-include 'includes/nav.php';
+include 'include/header.php';
+include 'include/navbar.php';
+	/*if (isset($_POST['save'])) {
+		$con = mysqli_connect("localhost","root","","erp");
+		$fname = $_POST['fname'];
+		$lname = $_POST['lname'];
+		$father = $_POST['father'];
+		$mother = $_POST['mother'];
+		$email = $_POST['email'];
+		$dob = $_POST['dob'];
+		$course = $_POST['course'];
+		$sessionf = $_POST['sessionf'];
+		$sessiont = $_POST['sessiont'];
+		$fname = $_POST['fname'];
+
+	}*/
 
 ?>
-
 <form method="post" class="form-group">
 <div class="registration-details">
 	<div class="profile-div">
 	        <span class="profile-heading">Basic Details</span>
 	</div>
 	<div class="reg-detail">
+		<div class="row mar-10">
+		<div class="col-md-3">
+			<input type="text" name="fname" autofocus class="form-control" placeholder="Enter User Id">
+		</div>
+		<div class="col-md-3">
+				<button class="btn-profile" name="search">Search</button>
+		</div>
+		<div class="col-md-2">
+			<label>Role of the User</label>
+		  </div>
+		<div class="col-md-4">
+		    <input type="text" name="role" readonly class="form-control">
+		 </div>
+		</div>
+		<hr class="hr-post">
 	<div class="row mar-10">
 		<div class="col-md-3">
 			<label for="fname">First Name</label>
@@ -135,7 +163,9 @@ include 'includes/nav.php';
 			</div>
 		</div>
 			<div class="mar-20">
-			<center><button class="btn-profile">Save</button></center>
+			<center>
+				<button class="btn-profile" name="save">Update</button>
+			</center>
 			</div>
 			</div>
 
@@ -147,4 +177,4 @@ include 'includes/nav.php';
 
 
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'include/footer.php'; ?>

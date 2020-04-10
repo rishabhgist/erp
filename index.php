@@ -1,11 +1,18 @@
 <?php include 'includes/function.php';
-	
-	$con = mysqli_connect("localhost","root","","erp");
-	if(isset($_POST['login'])) {
-		
-		login();
-	}
+$_SESSION['username'];
+$_SESSION['role'];
 
+$admin = "admin";
+$user = "user";
+
+if ($_SESSION['username']) {
+	if ($_SESSION['role'] == $user) {
+		header('location:user.php');
+	}elseif ($_SESSION['role'] == $admin) {
+		header('location:admin');
+	}
+}
+	
 ?>
 <html>
 <head>
@@ -28,6 +35,7 @@
 
 					<form id="role" class="form" method="POST">
 						<div class="form-group">
+							<?php echo $_SESSION['message']; ?>
 							<form >
 									<label class="placeholder">Username</label>
 									<input type="text" name="username" class="input form-control" autofocus>

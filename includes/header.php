@@ -1,14 +1,37 @@
-<?php include 'includes/function.php'; ?>
-<?php 
+<?php include 'includes/function.php'; 
+	
+  	session_start();
+    $con = mysqli_connect("localhost","root","","erp");
+    if ($_SESSION['username']) {
+       $user = $_SESSION['username']; 
+        $role = $_SESSION['role'];
+        $student = "student";
+        $teacher = "teacher";
+
+        if ($role == $student) {
+
+                $query = "SELECT * FROM studentdata WHERE loginId='$user'";
+                $result = mysqli_query($con,$query);
+                $user_detail = mysqli_fetch_assoc($result);
+                $fname = $user_detail['fname'];
+                $lname = $user_detail['lname'];
+
+        }elseif ($role == $teacher) {
+
+                $query = "SELECT * FROM teacherdata WHERE loginId='$user'";
+                $result = mysqli_query($con,$query);
+                $user_detail = mysqli_fetch_assoc($result);
+                $fname = $user_detail['fname'];
+                $lname = $user_detail['lname'];
 
 
-$fname = 'Jhon';
-$lname = 'Doe';
-
-
-
-
- ?>
+       
+    }
+    }else{
+        header('location:index.php');
+    }
+    
+?>
 
 <html>
 <head>
