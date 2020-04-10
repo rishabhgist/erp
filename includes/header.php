@@ -8,6 +8,7 @@
         $student = "student";
         $teacher = "teacher";
 
+
         if ($role == $student) {
 
                 $query = "SELECT * FROM studentdata WHERE loginId='$user'";
@@ -25,6 +26,10 @@
                 $lname = $user_detail['lname'];
 
 
+       
+    }elseif ($role == 'admin') {
+        $fname = "Jhon";
+        $lname = "Doe";
        
     }
     }else{

@@ -1,4 +1,30 @@
+<?php 
+
+if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'admin' ) {
+  
+
+?>
+
+
 <nav class="navbar fixed-top navbar-expand row">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a href="#home" class="nav-link">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a href="notice.php" class="nav-link">NOTICE</a>
+            </li>
+            <li class="nav-item">
+                <a href="library.php" class="nav-link">LIBRARY</a>
+            </li>
+            <li class="nav-item">
+                <a href="qna.php" class="nav-link">Q/A</a>
+            </li>
+          </ul>
+<?php 
+}elseif ($_SESSION['role'] == 'teacher' || $_SESSION['role'] == 'admin') {
+  
+ ?>         <nav class="navbar fixed-top navbar-expand row">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a href="#home" class="nav-link">HOME</a>
@@ -23,6 +49,7 @@
 
             
         </ul>
+<?php } ?>
         <ul class="col-md-2 nav-profile">
            <li class="nav-item nav-profile">
             <div class="dropdown-container">
@@ -40,4 +67,4 @@
           </ul>
     </nav>
   <body class="bg">
-  <div class="page">
+<div class="page">

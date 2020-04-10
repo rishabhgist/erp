@@ -2,9 +2,8 @@
 $_SESSION['message'] = '';
 $admin = "admin";
 session_start();
-if ($_SESSION['username'] || $_SESSION['role'] == $admin) {
+if ($_SESSION['role'] == $admin) {
 
-	$_SESSION['message'] = "Your are Welcome";
 }else{
 	header('location:../user.php');
 }
