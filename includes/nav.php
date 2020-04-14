@@ -1,24 +1,34 @@
 <?php 
 
+if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'teacher') {
+ $user = 'user';
+}else{
+
+  $user = 'admin';
+}
+
+ ?>
+
+<?php 
+
 if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'admin' ) {
   
 
 ?>
 
-
 <nav class="navbar fixed-top navbar-expand row">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a href="#home" class="nav-link">HOME</a>
+                <a href="<?php echo $user; ?>" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="notice.php" class="nav-link">NOTICE</a>
+                <a href="notice" class="nav-link">NOTICE</a>
             </li>
             <li class="nav-item">
-                <a href="library.php" class="nav-link">LIBRARY</a>
+                <a href="library" class="nav-link">LIBRARY</a>
             </li>
             <li class="nav-item">
-                <a href="qna.php" class="nav-link">Q/A</a>
+                <a href="qna" class="nav-link">Q/A</a>
             </li>
           </ul>
 <?php 
@@ -27,24 +37,19 @@ if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'admin' ) {
  ?>         <nav class="navbar fixed-top navbar-expand row">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a href="#home" class="nav-link">HOME</a>
+                <a href="<?php echo $user; ?>" class="nav-link">HOME</a>
             </li>
             <li class="nav-item">
-                <a href="notice.php" class="nav-link">NOTICE</a>
+                <a href="notice" class="nav-link">NOTICE</a>
             </li>
             <li class="nav-item">
-                <a href="library.php" class="nav-link">LIBRARY</a>
+                <a href="library" class="nav-link">LIBRARY</a>
             </li>
             <li class="nav-item">
-                <a href="qna.php" class="nav-link">Q/A</a>
+                <a href="qna" class="nav-link">Q/A</a>
             </li>
             <li class="nav-item">
-                <a href="timetable.php" class="nav-link">Timetable</a>
-            </li><li class="nav-item">
-                <a href="#" class="nav-link">teacher</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">student</a>
+                <a href="timetable" class="nav-link">Timetable</a>
             </li>
 
             

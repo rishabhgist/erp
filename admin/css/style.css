@@ -448,7 +448,6 @@ text-decoration: none;
 
 	padding: 20px 20px;
 }
-
 /*Admin Section CSS Only*/
 .container-pane{
 	margin: 5% 0;
@@ -507,4 +506,7 @@ text-decoration: none;
 .fa-arrow-up.ico{
 	margin-left: 5px;
 	color: #3dc461;
+}
+.generate-form{
+	margin-left: 10px;
 }

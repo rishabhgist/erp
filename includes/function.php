@@ -48,14 +48,14 @@ function login(){
             session_start();
             $_SESSION['username'] = $user;
             $_SESSION['role'] = $student;
-            header('location:user.php');
+            header('location:user');
             
         }elseif ($role['role'] == $teacher) {
             // teacher role
             session_start();
             $_SESSION['username'] = $user;
             $_SESSION['role'] = $teacher;
-            header('location:user.php');
+            header('location:user');
             
         }
     

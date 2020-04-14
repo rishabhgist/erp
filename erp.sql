@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 07, 2020 at 06:20 PM
+-- Generation Time: Apr 14, 2020 at 01:42 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -21,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `erp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `education`
+--
+
+DROP TABLE IF EXISTS `education`;
+CREATE TABLE IF NOT EXISTS `education` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `loginId` varchar(100) NOT NULL,
+  `highschool_school` varchar(100) NOT NULL,
+  `highschool_board` varchar(100) NOT NULL,
+  `highschool_percent` varchar(100) NOT NULL,
+  `inter_school` varchar(100) NOT NULL,
+  `inter_board` varchar(100) NOT NULL,
+  `inter_percent` varchar(100) NOT NULL,
+  `grad_school` varchar(100) NOT NULL,
+  `grad_board` varchar(100) NOT NULL,
+  `grad_percent` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -66,6 +88,8 @@ CREATE TABLE IF NOT EXISTS `studentdata` (
   `emailID` varchar(100) NOT NULL,
   `mobile` varchar(255) NOT NULL,
   `dob` varchar(50) NOT NULL,
+  `session_from` varchar(100) NOT NULL,
+  `session_to` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginId` (`loginId`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -74,8 +98,8 @@ CREATE TABLE IF NOT EXISTS `studentdata` (
 -- Dumping data for table `studentdata`
 --
 
-INSERT INTO `studentdata` (`id`, `loginId`, `courseId`, `fname`, `lname`, `father`, `mother`, `emailID`, `mobile`, `dob`) VALUES
-(1, '2017BCA029', 'BCA', 'Praveen', 'Kumar', 'Narendra Modi', 'Indra Gandhi', 'pkcool786@gmail.com', '7983294650', '15/03/1999');
+INSERT INTO `studentdata` (`id`, `loginId`, `courseId`, `fname`, `lname`, `father`, `mother`, `emailID`, `mobile`, `dob`, `session_from`, `session_to`) VALUES
+(1, '2017BCA029', 'BCA', 'Praveen', 'Kumar', 'Narendra Modi', 'Indra Gandhi', 'pkcool786@gmail.com', '7983294650', '15-03-1999', '2017', '2020');
 
 -- --------------------------------------------------------
 
@@ -104,6 +128,31 @@ CREATE TABLE IF NOT EXISTS `teacherdata` (
 
 INSERT INTO `teacherdata` (`id`, `loginId`, `courseId`, `fname`, `lname`, `father`, `mother`, `email`, `mobile`) VALUES
 (1, '2017BCA020', 'BCA', 'Divya', 'Tiwari', 'Sadiq Ansari', 'Komal Chaudhary', 'divyatiwari@erp.com', '7017226628');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `timetable`
+--
+
+DROP TABLE IF EXISTS `timetable`;
+CREATE TABLE IF NOT EXISTS `timetable` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `subject_one` varchar(100) NOT NULL,
+  `subject_two` varchar(100) NOT NULL,
+  `subject_three` varchar(100) NOT NULL,
+  `subject_four` varchar(100) NOT NULL,
+  `subject_five` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `timetable`
+--
+
+INSERT INTO `timetable` (`id`, `subject_one`, `subject_two`, `subject_three`, `subject_four`, `subject_five`) VALUES
+(1, 'Maths', 'Business Studies', 'POM', 'C Language', 'Lab'),
+(2, 'Maths', 'C Language', 'Business Studies', 'Business Studies', 'POM');
 
 -- --------------------------------------------------------
 

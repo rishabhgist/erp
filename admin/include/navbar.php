@@ -13,7 +13,7 @@
                 <a href="qna.php" class="nav-link">Q/A</a>
             </li>
             <li class="nav-item">
-                <a href="timetable.php" class="nav-link">Timetable</a>
+                <a href="../timetable.php" class="nav-link">Timetable</a>
             </li>
             <li class="nav-item">
             <div class="dropdown-container">

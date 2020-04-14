@@ -1,9 +1,106 @@
+<?php include 'include/db.php'; ?>
 <?php 
+$empty_message = '';
+		$fname = '';
+		$lname = '';
+		$father = '';
+		$mother = '';
+		$email = '';
+		$dob = '';
+		$course = '';
+		$sessionf = '';
+		$sessiont = '';
+		$mobile = '';
+		$address1 = '';
+		$address2 ='';
+
+		/*Education Details */
+
+		$highschool_school = $_POST['highschool_school'];
+		$highschool_board = $_POST['highschool_board'];
+		$highschool_percent = $_POST['highschool_percent'];
+		$inter_board = $_POST['inter_board'];
+		$inter_school = $_POST['inter_school'];
+		$inter_percent = $_POST['inter_percent'];
+		$grad_school = $_POST['grad_school'];
+		$grad_board = $_POST['grad_board'];
+		$grad_percent = $_POST['grad_percent'];
 
 include 'include/header.php';
 include 'include/navbar.php';
-	/*if (isset($_POST['save'])) {
-		$con = mysqli_connect("localhost","root","","erp");
+	if (isset($_POST['save'])) {
+		
+
+
+		/* Check Feilds Value*/
+
+
+		if ($_POST['fname'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> First name is Empty!</div>';
+		}elseif ($_POST['lname'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Last name is Empty!</div>';
+		}elseif ($_POST['father'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Father name is Empty!</div>';
+		}elseif ($_POST['mother'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Mother name is Empty!</div>';
+		}elseif ($_POST['email'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Email is Empty!</div>';
+		}elseif ($_POST['dob'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Date of Birth is Empty!</div>';
+		}elseif ($_POST['course'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Course is Empty!</div>';
+		}elseif ($_POST['sessionf'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Session From is Empty!</div>';
+		}elseif ($_POST['sessiont'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Session To is Empty!</div>';
+		}elseif ($_POST['address2'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Address is Empty!</div>';
+		}elseif ($_POST['mobile'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Mobile is Empty!</div>';
+		}elseif ($_POST['address1'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Address is Empty!</div>';
+		}
+
+		/*	Education Field Check */
+						
+		/*High School */
+
+		elseif ($_POST['highschool_school'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> High School is Empty!</div>';
+		}elseif ($_POST['highschool_board'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> High School Board is Empty!</div>';
+		}elseif ($_POST['highschool_percent'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> High School Percent is Empty!</div>';
+		}
+
+		/*Intermediate*/
+
+		elseif ($_POST['inter_school'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Intermediate School is Empty!</div>';
+		}elseif ($_POST['inter_board'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert">Intermediate Board is Empty!</div>';
+		}elseif ($_POST['inter_percent'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Intermediate Percentage is Empty!</div>';
+		}
+
+		/*Graduation*/
+
+		elseif ($_POST['grad_school'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Graduation School is Empty!</div>';
+		}elseif ($_POST['grad_board'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Graduation Board is Empty!</div>';
+		}elseif ($_POST['grad_percent'] == '') {
+			$empty_message = '<div class="alert alert-danger" role="alert"> Graduation Percentage is Empty!</div>';
+		}
+
+
+
+
+	}else {
+
+
+		// Inserting Into Datavbase
+
 		$fname = $_POST['fname'];
 		$lname = $_POST['lname'];
 		$father = $_POST['father'];
@@ -13,9 +110,77 @@ include 'include/navbar.php';
 		$course = $_POST['course'];
 		$sessionf = $_POST['sessionf'];
 		$sessiont = $_POST['sessiont'];
-		$fname = $_POST['fname'];
+		$mobile = $_POST['mobile'];
+		$address1 = $_POST['address1'];
+		$address2 = $_POST['address2'];
 
-	}*/
+		/*Education Details */
+
+		$highschool_school = $_POST['highschool_school'];
+		$highschool_board = $_POST['highschool_board'];
+		$highschool_percent = $_POST['highschool_percent'];
+		$inter_board = $_POST['inter_board'];
+		$inter_school = $_POST['inter_school'];
+		$inter_percent = $_POST['inter_percent'];
+		$grad_school = $_POST['grad_school'];
+		$grad_board = $_POST['grad_board'];
+		$grad_percent = $_POST['grad_percent'];
+
+		/*Generating Login Id */
+
+		$user = 025;
+
+		$course = strtoupper($course);
+		$loginId = $sessionf.$course.$user;
+		$password = rand(1999,5999);
+
+		/*Checking if LoginId already present or not */
+
+		$user_check = "SELECT loginId FROM users";
+		$result_user = mysqli_query($con,$user_check);
+		$row = mysqli_fetch_assoc($result_user);
+		
+
+		if ($row['loginId'] == $loginId) {
+
+			$user = $user + 1;
+			$loginId = $sessionf.$course.$user;
+		
+		/*	Inserting Login Id and Password */
+
+		}else{
+
+			$user_save = "INSERT INTO users WHERE loginId='$loginId',password = '$password', role = '$role'";
+			$result_save = mysqli_query($con,$user_save);
+			if (!$user_save) {
+				$user_save_error = "Error Saving Data";
+			}else{
+
+				/*Saving User Data Accoring to role*/
+
+				if ($role == 'student') {
+					
+					$user_data_save = "INSERT INTO studentdata WHERE loginId='$loginId', fname='$fname', lname = '$lname', courseId ='course', father = '$father', mother ='$mother' emailID='$email',mobile = '$mobile', dob = '$dob',session_from = '$sessionf',session_to = '$sessiont'";
+
+					$result_data_save = mysqli_query($con,$user_data_save);
+
+				}
+
+
+
+
+
+
+
+
+
+
+
+			}
+		}
+
+	}
+	
 
 ?>
 <form method="post" class="form-group">
@@ -35,6 +200,9 @@ include 'include/navbar.php';
 		  <div class="col-md-3">
 			<label>User Id for the User</label>
 		    <input type="text" name="role" readonly class="form-control">
+		 </div>
+		 <div class="col-md-4">
+		 	<?php echo $empty_message ?>
 		 </div>
 	</div>
 	<div class="row mar-10">
@@ -116,13 +284,13 @@ include 'include/navbar.php';
 	        	<span class="mar-10"> High School</span>
 			</div>
 			<div class="col-md-3">
-			<input type="text" name="school" autofocus class="form-control" placeholder="School/Institute">	
+			<input type="text" name="highschool_school" autofocus class="form-control" placeholder="School/Institute">	
 			</div>
 			<div class="col-md-3">
-			<input type="text" name="board" autofocus class="form-control" placeholder="Board/University">	
+			<input type="text" name="highschool_board" autofocus class="form-control" placeholder="Board/University">	
 			</div>
 			<div class="col-md-3">
-			<input type="text" name="percentage" autofocus class="form-control" placeholder="Percentage">	
+			<input type="text" name="highschool_percent" autofocus class="form-control" placeholder="Percentage">	
 			</div>
 
 	</div>
@@ -133,13 +301,13 @@ include 'include/navbar.php';
 	        	<span class="mar-10">Intermediate</span>
 			</div>
 			<div class="col-md-3">
-			<input type="text" name="school" autofocus class="form-control" placeholder="School/Institute">	
+			<input type="text" name="inter_school" autofocus class="form-control" placeholder="School/Institute">	
 			</div>
 			<div class="col-md-3">
-			<input type="text" name="board" autofocus class="form-control" placeholder="Board/University">	
+			<input type="text" name="inter_board" autofocus class="form-control" placeholder="Board/University">	
 			</div>
 			<div class="col-md-3">
-			<input type="text" name="percentage" autofocus class="form-control" placeholder="Percentage">	
+			<input type="text" name="inter_percent" autofocus class="form-control" placeholder="Percentage">	
 			</div>
 
 	</div>
@@ -150,13 +318,13 @@ include 'include/navbar.php';
 	        	<span class="mar-10"> Graduation</span>
 			</div>
 			<div class="col-md-3">
-			<input type="text" name="school" autofocus class="form-control" placeholder="School/Institute">	
+			<input type="text" name="grad_school" autofocus class="form-control" placeholder="School/Institute">	
 			</div>
 			<div class="col-md-3">
-			<input type="text" name="board" autofocus class="form-control" placeholder="Board/University">	
+			<input type="text" name="grad_board" autofocus class="form-control" placeholder="Board/University">	
 			</div>
 			<div class="col-md-3">
-			<input type="text" name="percentage" autofocus class="form-control" placeholder="Percentage">	
+			<input type="text" name="grad_percent" autofocus class="form-control" placeholder="Percentage">	
 			</div>
 			</div>
 		</div>

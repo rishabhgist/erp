@@ -1,4 +1,4 @@
-<?php include 'includes/function.php'; 
+<?php include 'function.php'; 
 	
   	session_start();
     $con = mysqli_connect("localhost","root","","erp");

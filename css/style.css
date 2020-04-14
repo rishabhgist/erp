@@ -454,3 +454,15 @@ text-decoration: none;
 
 	padding: 20px 20px;
 }
+.tt-container{
+
+	background-color: #fff;
+	border: 1px solid #d6d6d6;
+	height: auto;
+	width: 1000px;
+	margin:auto;
+	margin-top: 5%
+}
+.generate-form{
+	margin-left: 10px;
+}
