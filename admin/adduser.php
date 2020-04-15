@@ -28,6 +28,7 @@ $empty_message = '';
 
 include 'include/header.php';
 include 'include/navbar.php';
+
 	if (isset($_POST['save'])) {
 		
 
@@ -150,22 +151,16 @@ include 'include/navbar.php';
 
 		}else{
 
-			$user_save = "INSERT INTO users WHERE loginId='$loginId',password = '$password', role = '$role'";
+			$user_save = "INSERT INTO users (loginId,password,role) VALUES ('$login','$password','$role')";
 			$result_save = mysqli_query($con,$user_save);
-			if (!$user_save) {
-				$user_save_error = "Error Saving Data";
-			}else{
+			if (!$result_save) {
 
-				/*Saving User Data Accoring to role*/
+				header('Location:../error');
+			}
 
-				if ($role == 'student') {
-					
-					$user_data_save = "INSERT INTO studentdata WHERE loginId='$loginId', fname='$fname', lname = '$lname', courseId ='course', father = '$father', mother ='$mother' emailID='$email',mobile = '$mobile', dob = '$dob',session_from = '$sessionf',session_to = '$sessiont'";
+			$user_data_save = "INSERT INTO userdata WHERE loginId='$loginId', fname='$fname', lname = '$lname', courseId ='course', father = '$father', mother ='$mother' emailID='$email',mobile = '$mobile', dob = '$dob',session_from = '$sessionf',session_to = '$sessiont'";
 
-					$result_data_save = mysqli_query($con,$user_data_save);
-
-				}
-
+			$result_data_save = mysqli_query($con,$user_data_save);
 
 
 
