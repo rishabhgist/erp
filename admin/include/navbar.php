@@ -35,7 +35,6 @@
               Admin
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="profile.php">Profile</a>
                   <a class="dropdown-item" href="#">Helpdesk</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="logout.php">LogOut</a>

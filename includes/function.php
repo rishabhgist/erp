@@ -6,13 +6,16 @@ $_SESSION['role'] = '';
 
 
 
+
 if(isset($_POST['login'])) {
         
         login();
 }
 
 function login(){
+        
         $con = mysqli_connect("localhost","root","","erp");
+
         $user = ($_POST['username']);
         $pass = ($_POST['password']);
 
@@ -67,5 +70,6 @@ function login(){
 </div>';
     }
 }
+
 
 ?>

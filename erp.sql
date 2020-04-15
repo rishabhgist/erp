@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 14, 2020 at 01:42 PM
+-- Generation Time: Apr 15, 2020 at 05:08 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -73,65 +73,6 @@ INSERT INTO `post` (`id`, `posted_by`, `post_title`, `post_body`, `post_date`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `studentdata`
---
-
-DROP TABLE IF EXISTS `studentdata`;
-CREATE TABLE IF NOT EXISTS `studentdata` (
-  `id` int(100) NOT NULL AUTO_INCREMENT,
-  `loginId` varchar(100) NOT NULL,
-  `courseId` varchar(100) NOT NULL,
-  `fname` varchar(200) NOT NULL,
-  `lname` varchar(100) NOT NULL,
-  `father` varchar(100) NOT NULL,
-  `mother` varchar(100) NOT NULL,
-  `emailID` varchar(100) NOT NULL,
-  `mobile` varchar(255) NOT NULL,
-  `dob` varchar(50) NOT NULL,
-  `session_from` varchar(100) NOT NULL,
-  `session_to` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `loginId` (`loginId`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `studentdata`
---
-
-INSERT INTO `studentdata` (`id`, `loginId`, `courseId`, `fname`, `lname`, `father`, `mother`, `emailID`, `mobile`, `dob`, `session_from`, `session_to`) VALUES
-(1, '2017BCA029', 'BCA', 'Praveen', 'Kumar', 'Narendra Modi', 'Indra Gandhi', 'pkcool786@gmail.com', '7983294650', '15-03-1999', '2017', '2020');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `teacherdata`
---
-
-DROP TABLE IF EXISTS `teacherdata`;
-CREATE TABLE IF NOT EXISTS `teacherdata` (
-  `id` int(100) NOT NULL AUTO_INCREMENT,
-  `loginId` varchar(200) NOT NULL,
-  `courseId` varchar(100) NOT NULL,
-  `fname` varchar(100) NOT NULL,
-  `lname` varchar(100) NOT NULL,
-  `father` varchar(100) NOT NULL,
-  `mother` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `mobile` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `loginId` (`loginId`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `teacherdata`
---
-
-INSERT INTO `teacherdata` (`id`, `loginId`, `courseId`, `fname`, `lname`, `father`, `mother`, `email`, `mobile`) VALUES
-(1, '2017BCA020', 'BCA', 'Divya', 'Tiwari', 'Sadiq Ansari', 'Komal Chaudhary', 'divyatiwari@erp.com', '7017226628');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `timetable`
 --
 
@@ -153,6 +94,38 @@ CREATE TABLE IF NOT EXISTS `timetable` (
 INSERT INTO `timetable` (`id`, `subject_one`, `subject_two`, `subject_three`, `subject_four`, `subject_five`) VALUES
 (1, 'Maths', 'Business Studies', 'POM', 'C Language', 'Lab'),
 (2, 'Maths', 'C Language', 'Business Studies', 'Business Studies', 'POM');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userdata`
+--
+
+DROP TABLE IF EXISTS `userdata`;
+CREATE TABLE IF NOT EXISTS `userdata` (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `loginId` varchar(100) NOT NULL,
+  `courseId` varchar(100) NOT NULL,
+  `fname` varchar(200) NOT NULL,
+  `lname` varchar(100) NOT NULL,
+  `father` varchar(100) NOT NULL,
+  `mother` varchar(100) NOT NULL,
+  `emailID` varchar(100) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `dob` varchar(50) NOT NULL,
+  `session_from` varchar(100) NOT NULL,
+  `session_to` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `loginId` (`loginId`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userdata`
+--
+
+INSERT INTO `userdata` (`id`, `loginId`, `courseId`, `fname`, `lname`, `father`, `mother`, `emailID`, `mobile`, `dob`, `session_from`, `session_to`) VALUES
+(1, '2017BCA029', 'BCA', 'Praveen', 'Kumar', 'Narendra Modi', 'Indra Gandhi', 'pkcool786@gmail.com', '7983294650', '15-03-1999', '2017', '2020'),
+(2, '2017BCA020', 'BCA', 'Divya', 'Tiwari', 'Sadiq Ansari', 'Komal Chaudhary', 'divyatiwari@erp.com', '7017282266', '17-03-1993', '', '');
 
 -- --------------------------------------------------------
 

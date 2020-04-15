@@ -8,33 +8,21 @@
         $student = "student";
         $teacher = "teacher";
 
+        if ($role == $student || $role == $teacher ) {
 
-        if ($role == $student) {
-
-                $query = "SELECT * FROM studentdata WHERE loginId='$user'";
+                $query = "SELECT * FROM userdata WHERE loginId='$user'";
                 $result = mysqli_query($con,$query);
                 $user_detail = mysqli_fetch_assoc($result);
                 $fname = $user_detail['fname'];
                 $lname = $user_detail['lname'];
 
-        }elseif ($role == $teacher) {
-
-                $query = "SELECT * FROM teacherdata WHERE loginId='$user'";
-                $result = mysqli_query($con,$query);
-                $user_detail = mysqli_fetch_assoc($result);
-                $fname = $user_detail['fname'];
-                $lname = $user_detail['lname'];
-
-
-       
-    }elseif ($role == 'admin') {
+        }elseif ($role == 'admin') {
         $fname = "Jhon";
         $lname = "Doe";
-       
-    }
-    }else{
-        header('location:index.php');
-    }
+            }
+        }else{
+                header('location:index.php');
+            }
     
 ?>
 
