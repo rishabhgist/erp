@@ -12,7 +12,7 @@ include 'includes/nav.php';
 	        	<span class="profile-heading">Question & Answer</span>
 				</div>
 				<div class="col-md-3">
-	        	<button class="btn-ask-qna btn-profile">Ask Question</button>
+	        	<a href="post.php" class="modify-link"><button class="btn-ask-qna btn-profile">Ask Question</button></a>
 					
 				</div>
 			</div>

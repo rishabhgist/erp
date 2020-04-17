@@ -513,3 +513,14 @@ text-decoration: none;
 .modify-link{
 	margin: 10px;
 }
+
+.con-success{
+
+	background-color: #fff;
+	border: 1px solid #d6d6d6;
+	height: 400px;
+	width: 900px;
+	margin: auto;
+	margin-top: 5%;
+	padding: 50px;
+}

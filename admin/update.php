@@ -1,32 +1,45 @@
 <?php 
-
+include 'include/db.php';
 include 'include/header.php';
 include 'include/navbar.php';
-	/*if (isset($_POST['save'])) {
-		$con = mysqli_connect("localhost","root","","erp");
-		$fname = $_POST['fname'];
-		$lname = $_POST['lname'];
-		$father = $_POST['father'];
-		$mother = $_POST['mother'];
-		$email = $_POST['email'];
-		$dob = $_POST['dob'];
-		$course = $_POST['course'];
-		$sessionf = $_POST['sessionf'];
-		$sessiont = $_POST['sessiont'];
-		$fname = $_POST['fname'];
+$message = '';
+$role = '';
+if (isset($_POST['search'])) {
+		
 
-	}*/
+	$username = $_POST['userid'];
+		/*User Search*/
+
+		$user_check = "SELECT * FROM users";
+		$result_user = mysqli_query($con,$user_check);
+		
+		while ($row = mysqli_fetch_assoc($result_user)) {
+				$login = $row['loginId'];
+
+				if ($username == $login) {
+
+					$role = $row['role'];
+
+				}else{
+
+					$message = 'User not found';
+
+				}
+
+
+}
+}
 
 ?>
 <form method="post" class="form-group">
 <div class="registration-details">
 	<div class="profile-div">
-	        <span class="profile-heading">Basic Details</span>
+	        <span class="profile-heading">Basic Details</span><?php echo $message ?>
 	</div>
 	<div class="reg-detail">
 		<div class="row mar-10">
 		<div class="col-md-3">
-			<input type="text" name="fname" autofocus class="form-control" placeholder="Enter User Id">
+			<input type="text" name="userid" autofocus class="form-control" placeholder="Enter User Id">
 		</div>
 		<div class="col-md-3">
 				<button class="btn-profile" name="search">Search</button>
@@ -35,7 +48,7 @@ include 'include/navbar.php';
 			<label>Role of the User</label>
 		  </div>
 		<div class="col-md-4">
-		    <input type="text" name="role" readonly class="form-control">
+		    <input type="text" name="role" value="<?php echo $role ?>" readonly class="form-control">
 		 </div>
 		</div>
 		<hr class="hr-post">

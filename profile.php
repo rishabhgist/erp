@@ -20,15 +20,33 @@ if ($_SESSION['username']) {
                 $lname = $user_detail['lname'];
                 $father = $user_detail['father'];
                 $mother = $user_detail['mother'];
-                $course = $user_detail['courseId'];
+                $course = $user_detail['course'];
                 $dob = $user_detail['dob'];
-                $email = $user_detail['emailID'];
+                $email = $user_detail['email'];
                 $mobile = $user_detail['mobile'];
 
                 if ($role == "student") {
                 	$sessionf= $user_detail['session_from'];
                 	$sessiont= $user_detail['session_to'];
                 }
+                $address1 = $user_detail['address1'];
+                $address2 = $user_detail['address2'];
+
+                /*Fecthing Education Details*/
+
+                $query2 = "SELECT * FROM education WHERE loginId='$user'";
+                $result2 = mysqli_query($con,$query2);
+                $edu_detail = mysqli_fetch_assoc($result2);
+
+                $highschool_school = $edu_detail['highschool_school'];
+				$highschool_board = $edu_detail['highschool_board'];
+				$highschool_percent = $edu_detail['highschool_percent'];
+				$inter_board = $edu_detail['inter_board'];
+				$inter_school = $edu_detail['inter_school'];
+				$inter_percent = $edu_detail['inter_percent'];
+				$grad_school = $edu_detail['grad_school'];
+				$grad_board = $edu_detail['grad_board'];
+				$grad_percent = $edu_detail['grad_percent'];
 
 
         }else{
@@ -105,13 +123,14 @@ if ($_SESSION['username']) {
     	</div>
     	<div class="row">
     		<div class="col-md-3 title">Address</div>
-    		<div class="col-md-3 data">B 61, Gokul Vihar <br> Rohta Road, Meerut </div>
+    		<div class="col-md-3 data"><?php echo $address1 ?> <br> <?php echo $address2 ?> </div>
     		<div class="col-md-3 title">Father's Contact</div>
-    		<div class="col-md-3 data">+91 - 7983294650</div>
+    		<div class="col-md-3 data">+91 - <?php echo $mobile ?></div>
  
     	</div>
     </div>
  </div>
+
 <div class="basic-details">
 	<div class="profile-div">
         <span>Educational Details Details</span>
@@ -125,21 +144,21 @@ if ($_SESSION['username']) {
 		</div>
 		<div class="row">
 			<div class="col-md-3 data">High School</div>
-			<div class="col-md-3 data">Meerut Public School</div>	
-			<div class="col-md-3 data">CBSE</div>			
-			<div class="col-md-3 data">82 %</div>		
+			<div class="col-md-3 data"><?php echo $highschool_school ?></div>	
+			<div class="col-md-3 data"><?php echo $highschool_board ?></div>			
+			<div class="col-md-3 data"><?php echo $highschool_percent ?> %</div>	
 		</div>
 		<div class="row">
 			<div class="col-md-3 data">Intermediate</div>
-			<div class="col-md-3 data">Meerut Public School</div>	
-			<div class="col-md-3 data">Cbse</div>			
-			<div class="col-md-3 data">80 %</div>		
+			<div class="col-md-3 data"><?php echo $inter_school ?></div>	
+			<div class="col-md-3 data"><?php echo $inter_board ?></div>			
+			<div class="col-md-3 data"><?php echo $inter_percent ?> %</div>		
 		</div>
 		<div class="row">
-			<div class="col-md-3 data">BCA</div>
-			<div class="col-md-3 data">Dewan Institute of Managment Studies</div>	
-			<div class="col-md-3 data">Chaudhary Charan Singh</div>			
-			<div class="col-md-3 data">70 %</div>		
+			<div class="col-md-3 data">Graduation</div>
+			<div class="col-md-3 data"><?php echo $grad_school ?></div>	
+			<div class="col-md-3 data"><?php echo $grad_board ?></div>			
+			<div class="col-md-3 data"><?php echo $grad_percent ?> %</div>	
 		</div>
 	</div>
  </div>

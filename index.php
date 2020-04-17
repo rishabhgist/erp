@@ -3,10 +3,9 @@ $_SESSION['username'];
 $_SESSION['role'];
 
 $admin = "admin";
-$user = "user";
 
 if ($_SESSION['username']) {
-	if ($_SESSION['role'] == $user) {
+	if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'teacher') {
 		header('location:user.php');
 	}elseif ($_SESSION['role'] == $admin) {
 		header('location:admin');
