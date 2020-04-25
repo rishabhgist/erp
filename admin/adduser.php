@@ -45,7 +45,7 @@ setcookie("UserFormData", serialize($_POST), time()+120);
 
 		/*Generating Login Id */
 
-		$user = 25;
+		$user = 29;
 		$course = strtoupper($course);
 		$loginId = $sessionf.$course.'0'.$user;
 		$password = rand(1999,5999);
@@ -72,21 +72,20 @@ setcookie("UserFormData", serialize($_POST), time()+120);
 
 			$user_check = "SELECT * FROM users";
 			$result_user = mysqli_query($con,$user_check);
-			while ($row = mysqli_fetch_assoc($result_user)) {
-				$login = $row['loginId'];
+			 
+	
+				while ($row = mysqli_fetch_assoc($result_user)) {
 
-				if ($loginId == $login) {
+					$login = $row['loginId'];
 
-					$user = $user + 1;
-					if ($user >= 100) {
-
-						$loginId = $sessionf.$course.$user;
-					
-					}else{
-
-						$loginId = $sessionf.$course.'0'.$user;
+					if ($loginId == $login) {
 						
+						$user++;
 					}
+				}
+
+			
+			$loginId = $sessionf.$course.'0'.$user;
 
 
 			$user_save = "INSERT INTO users (loginId,password,role) VALUES ('$loginId','$password','$role')";
@@ -111,8 +110,8 @@ setcookie("UserFormData", serialize($_POST), time()+120);
 		
 		/*	Inserting Login Id and Password */
 
-	}
-			} // While Loop 	
+
+			 // While Loop 	
 
 			
 		}

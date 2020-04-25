@@ -1,7 +1,33 @@
 <?php 
-
+include 'includes/db.php';
 include 'includes/header.php';
 include 'includes/nav.php';
+
+
+if (isset($_GET['post_id'])) {
+	
+ 	$post_id = $_GET['post_id'];
+ 	
+	$post_query = "SELECT * FROM post WHERE id = '$post_id'";
+	$result = mysqli_query($con,$post_query);
+	$row = mysqli_fetch_assoc($result);
+
+	$posted_by = $row['posted_by'];
+	$post_title = $row['post_title'];
+	$post_date = $row['post_date'];
+
+	$find_user = "SELECT * FROM userdata WHERE loginId = '$posted_by'";
+	$result2 = mysqli_query($con,$find_user);
+	$row2 = mysqli_fetch_assoc($result2);
+
+	$fname = $row2['fname'];
+	$lname = $row2['lname'];
+
+}else{
+
+	header('location:user');
+}
+
 
 ?>		
 	<div>
@@ -20,12 +46,13 @@ include 'includes/nav.php';
 			<div class="row" style="margin: auto;">
 			<img src="img/profile.png" class="profile-pic-ico">
 			<div class="col-text">
-			<a href="user.php" class="posted-name">Jhon Doe</a><br>
-			<span class="post-time">Just Now</span>
+
+			<a href="user.php" class="posted-name"><?php echo $fname.' '.$lname?></a><br>
+			<span class="post-time"><?php echo $post_date ?></span>
 			</div>
 			</div>
 			<p class="qna-title">
-				What is C Language?
+				<?php echo $post_title ?>
 			</p>
 				<div class="container container-react">
 				<div class="row">

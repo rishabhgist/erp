@@ -9,8 +9,8 @@
 		<div class="admin-links">
 		<li class="admin-item"><a href="index.php" class="profile-link"><i class="fas fa-home ico"></i>Home</a></li>
 		
-		<li class="admin-item"><a href="" class="profile-link"><i class="fas fa-user-graduate ico"></i>Student Report</a></li>
-		<li class="admin-item"><a href="" class="profile-link"><i class="fas fa-chalkboard-teacher ico"></i>Teacher Report</a></li>
+		<li class="admin-item"><a href="report.php?id=1" class="profile-link"><i class="fas fa-user-graduate ico"></i>Student Report</a></li>
+		<li class="admin-item"><a href="report.php?id=2" class="profile-link"><i class="fas fa-chalkboard-teacher ico"></i>Teacher Report</a></li>
 		<li class="admin-item"><a href="qnarepo.php" class="profile-link"><i class="fas fa-retweet ico"></i>QnA Report</a></li>
 		</div>
 	</div>

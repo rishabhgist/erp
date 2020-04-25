@@ -8,17 +8,19 @@ include 'includes/nav.php';
 $user = $_SESSION['username'];
 $message = '';
 
-
 /*Saving Questions*/
 
 if (isset($_POST['save'])) {
 
 	$question = $_POST['question'];
+	$date = date("d/m/Y");
+	$status = "draft";
+	
 	if ($question == '') {
 		$message = '<div class="alert alert-danger btn-ask" role="alert"> Question is Empty!</div>';
 	}else{
 
-		$query = "INSERT INTO post (posted_by, post_title) VALUES ('$user','$question')";
+		$query = "INSERT INTO post (posted_by, post_title,post_date,status) VALUES ('$user','$question','$date','$status')";
 		$result = mysqli_query($con,$query);
 
 		if (!$result) {
@@ -49,20 +51,6 @@ if (isset($_POST['save'])) {
 		}
 
 
-	}
-
-/*Update Question*/
-
-	if (isset($_GET['edit'])) {
-
-		$post_id = $_GET['edit'];
-		$update_query = "UPDATE post SET post_title='$question' WHERE id = '$post_id'";
-		$result_update = mysqli_query($con,$update_query);
-		if (!$result_update) {
-		$message = '<div class="alert alert-danger btn-ask" role="alert"> Cannot Update !</div>';
-		}else{
-		header('location:post.php');
-		}
 	}
 ?>		
 
@@ -108,7 +96,7 @@ if (isset($_POST['save'])) {
 			?>
 		    <tr>
 		      <td colspan="3"><?php echo $question ?></td>
-		      <td><a href="post.php?edit=<?php echo $id?>" class="modify-link" >Edit</a>&nbsp;<a href="post.php?delete=<?php echo $id?>" class="modify-link">Delete</a></td>
+		      <td><a href="edit.php?edit=<?php echo $id?>" class="modify-link" >Edit</a>&nbsp;<a href="post.php?delete=<?php echo $id?>" class="modify-link">Delete</a></td>
 		    </tr>
 
 		<?php } ?>

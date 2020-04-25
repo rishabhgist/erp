@@ -1,43 +1,24 @@
 <?php include 'include/db.php'; ?>
 <?php 
 
-
-$year = '2017';
-$course = 'BCA';
-$user = 29;
-
-
 if (isset($_POST['save'])) {
 
+	$new= $_POST['username'];
 
-	$user_check = "SELECT * FROM users";
-	$result_user = mysqli_query($con,$user_check);
+	$row = '0';
+	$q = "SELECT id FROM users";
+	$r = mysqli_query($con,$q);
+	$row = mysqli_fetch_assoc($r);
 
-	$value = $year.$course.'0'.$user;
 
-			while ($row = mysqli_fetch_assoc($result_user)) {
-				$login = $row['loginId'];
+	if ($new = $row['id']) {
+				
 
-				if ($value == $login) {
+				
+	}
 
-					$user = $user + 1;
-					if ($user >= 30) {
-
-						echo $value = $year.$course.$user;
-						
-					}else{
-
-						echo $value = $year.$course.'0'.$user;
-					}
-
-			}
-			
-			}
 
 }
-
-		
-
 
  ?>
 
@@ -53,7 +34,6 @@ if (isset($_POST['save'])) {
 
  		<button name="save">Generate</button>
 
- 		<p><?php  ?></p>
  	
  	</form>
  

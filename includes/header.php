@@ -15,6 +15,13 @@
                 $user_detail = mysqli_fetch_assoc($result);
                 $fname = $user_detail['fname'];
                 $lname = $user_detail['lname'];
+                $dob = $user_detail['dob'];
+                $email = $user_detail['email'];
+                $mobile = $user_detail['mobile'];
+                $user_id = $user_detail['loginId'];
+
+
+
 
         }elseif ($role == 'admin') {
         $fname = "Jhon";

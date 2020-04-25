@@ -524,3 +524,13 @@ text-decoration: none;
 	margin-top: 5%;
 	padding: 50px;
 }
+.container-report{
+
+	background-color: #fff;
+	border: 1px solid #d6d6d6;
+	height: 400px;
+	width: 900px;
+	margin: auto;
+	margin-top: 5%;
+	padding: 50px;
+}

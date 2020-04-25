@@ -28,7 +28,7 @@ if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'admin' ) {
                 <a href="library" class="nav-link">LIBRARY</a>
             </li>
             <li class="nav-item">
-                <a href="qna" class="nav-link">Q/A</a>
+                <a href="post" class="nav-link">Ask Question</a>
             </li>
           </ul>
 <?php 
@@ -46,7 +46,7 @@ if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'admin' ) {
                 <a href="library" class="nav-link">LIBRARY</a>
             </li>
             <li class="nav-item">
-                <a href="qna" class="nav-link">Q/A</a>
+                <a href="post" class="nav-link">Ask Question</a>
             </li>
             <li class="nav-item">
                 <a href="timetable" class="nav-link">Timetable</a>

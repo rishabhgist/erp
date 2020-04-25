@@ -279,6 +279,7 @@ footer{
 .post-time{
 	line-height: 2px;
 	font-size: 0.7rem;
+	margin-top: 5px;
 }
 .post-profile{
 	width: 40px;
@@ -340,6 +341,10 @@ footer{
 	width: auto;
 	text-align: center;
 	justify-content: center;
+}
+.btn-ask-update{
+
+	width: 200px;
 }
 .text-muted{
 	font-style: italic;
