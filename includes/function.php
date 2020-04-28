@@ -19,7 +19,7 @@ function login(){
         $user = ($_POST['username']);
         $pass = ($_POST['password']);
 
-        // Verify Userame and password
+        // Verify Username and password
 
         $user = mysqli_real_escape_string($con,$user);
         $pass = mysqli_real_escape_string($con,$pass);
@@ -51,14 +51,14 @@ function login(){
             session_start();
             $_SESSION['username'] = $user;
             $_SESSION['role'] = $student;
-            header('location:user');
+            header('location:user.php');
             
         }elseif ($role['role'] == $teacher) {
             // teacher role
             session_start();
             $_SESSION['username'] = $user;
             $_SESSION['role'] = $teacher;
-            header('location:user');
+            header('location:user.php');
             
         }
     

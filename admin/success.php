@@ -26,10 +26,10 @@ if ($_SESSION['username']) {
 <p>
 	
 
-	Your User id is <?php echo $user_id ?>
+	Your User id is &nbsp; <?php echo $user_id ?>
 
 </p>
-<p> Your Password is <?php echo $password ?></p>
+<p> Your Password is &nbsp; <?php echo $password ?></p>
 	
 
 

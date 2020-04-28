@@ -14,6 +14,57 @@ setcookie("UserFormData", serialize($_POST), time()+120);
 
 		/* Check Feilds Value*/
 
+		if ($_POST['fname'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> First Name is Empty!</div>';
+		}elseif ($_POST['lname'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Last Name is Empty!</div>';
+		}elseif ($_POST['father'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Father Name is Empty!</div>';
+		}elseif ($_POST['mother'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Mother Name is Empty!</div>';
+		}elseif ($_POST['email'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Email is Empty!</div>';
+		}elseif ($_POST['dob'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Date of Birth is Empty!</div>';
+		}elseif ($_POST['course'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Course is Empty!</div>';
+		}elseif ($_POST['sessionf'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Session From is Empty!</div>';
+		}elseif ($_POST['sessiont'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Session To is Empty!</div>';
+		}elseif ($_POST['mobile'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert">Mobile is Empty!</div>';
+		}elseif ($_POST['address1'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Address is Empty!</div>';
+		}elseif ($_POST['address2'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Address is Empty!</div>';
+		}
+
+		/*Education Field Check */
+
+		elseif ($_POST['highschool_school'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> High School School is Empty!</div>';
+		}
+		elseif ($_POST['highschool_board'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> High School Board is Empty!</div>';
+		}elseif ($_POST['highschool_percent'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> High School Percentage is Empty!</div>';
+		}
+		elseif ($_POST['inter_school'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Intermediate School is Empty!</div>';
+		}
+		elseif ($_POST['inter_board'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Intermediate Board is Empty!</div>';
+		}elseif ($_POST['inter_percent'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Intermediate Percentage is Empty!</div>';
+		}elseif ($_POST['grad_school'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Graduation School is Empty!</div>';
+		}elseif ($_POST['grad_board'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Graduation Board is Empty!</div>';
+		}elseif ($_POST['grad_percent'] == '') {
+			$empty_message = '<div class="alert alert-danger btn-ask" role="alert"> Graduation Percentage is Empty!</div>';
+		}
+		else{
 
 		// Inserting Into Database
 
@@ -43,14 +94,9 @@ setcookie("UserFormData", serialize($_POST), time()+120);
 		$grad_board = $_POST['grad_board'];
 		$grad_percent = $_POST['grad_percent'];
 
-		/*Generating Login Id */
+		
 
-		$user = 29;
-		$course = strtoupper($course);
-		$loginId = $sessionf.$course.'0'.$user;
-		$password = rand(1999,5999);
 
-		/*Checking if LoginId already present or not */
 
 		
 
@@ -63,60 +109,64 @@ setcookie("UserFormData", serialize($_POST), time()+120);
 		
 		if ($row2['fname']==$fname && $row2['father']==$father) {
 
-			header('location:error');
+			header('location:error.php');
 			$_SESSION['message'] = "User Already Resgistered";
 			$_SESSION['user_id'] = $row2['loginId'];
 
 		}else{
 
 
-			$user_check = "SELECT * FROM users";
+			$user_check = "SELECT id FROM users ORDER BY id DESC LIMIT 1";
 			$result_user = mysqli_query($con,$user_check);
-			 
-	
-				while ($row = mysqli_fetch_assoc($result_user)) {
+			$row = mysqli_fetch_assoc($result_user);
+			$id = $row['id'];
 
-					$login = $row['loginId'];
+			/*Generating Login Id */
 
-					if ($loginId == $login) {
-						
-						$user++;
-					}
+				$id = $id + 1;
+				$course = strtoupper($course);
+				$password = rand(1999,5999);
+
+				if ($id >= 100) {
+					
+					$loginId = $sessionf.$course.$id;
+
+				}else{
+
+					$loginId = $sessionf.$course.'0'.$user;
 				}
-
 			
-			$loginId = $sessionf.$course.'0'.$user;
+			
+				/*Saving User Data -- Login Details*/
 
-
-			$user_save = "INSERT INTO users (loginId,password,role) VALUES ('$loginId','$password','$role')";
+			$user_save = "INSERT INTO users (id,loginId,password,role) VALUES ('$id','$loginId','$password','$role')";
 			$result_save = mysqli_query($con,$user_save);
-			
+
+				/*Saving User Data -- Personal Details*/
+
 			$user_data_save = "INSERT INTO userdata 
-			(loginId,fname,lname,course,father,mother,email,mobile,dob,session_from,session_to,address1,address2) 
+			(id,loginId,fname,lname,course,father,mother,email,mobile,dob,session_from,session_to,address1,address2) 
 			VALUES 
-			('$loginId','$fname','$lname','$course','$father','$mother', '$email','$mobile','$dob','$sessionf','$sessiont','$address1','$address2')";
+			('$id','$loginId','$fname','$lname','$course','$father','$mother', '$email','$mobile','$dob','$sessionf','$sessiont','$address1','$address2')";
 
 			$result_data_save = mysqli_query($con,$user_data_save);
 
+
+				/*Saving User Data -- Education Details*/
+
 			$education_save = "INSERT INTO education 
-			(loginId,highschool_school,highschool_board,highschool_percent,inter_school,inter_board,inter_percent,grad_school,grad_board,grad_percent) VALUES ('$loginId','$highschool_school','$highschool_board','$highschool_percent','$inter_school','$inter_board','$inter_percent','$grad_school','$grad_board','$grad_percent')";
+			(id,loginId,highschool_school,highschool_board,highschool_percent,inter_school,inter_board,inter_percent,grad_school,grad_board,grad_percent) VALUES ('$id','$loginId','$highschool_school','$highschool_board','$highschool_percent','$inter_school','$inter_board','$inter_percent','$grad_school','$grad_board','$grad_percent')";
 			
 			$result_education = mysqli_query($con,$education_save);
 
-			header('location:success');
+			header('location:success.php');
 			$_SESSION['message'] = "User Added Succefully";
 			$_SESSION['user_id'] = $loginId;
 			$_SESSION['password'] = $password;
-		
-		/*	Inserting Login Id and Password */
-
-
-			 // While Loop 	
-
-			
+	
 		}
-
 	}
+}
 
 ?>
 <form method="post" class="form-group">
@@ -135,7 +185,7 @@ setcookie("UserFormData", serialize($_POST), time()+120);
 		  </div>
 		  <div class="col-md-3">
 			<label>User Id for the User</label>
-		    <input type="text" name="role" readonly class="form-control">
+		    <input type="text" name="userid" readonly class="form-control">
 		 </div>
 		 <div class="col-md-4">
 		 	<?php echo $empty_message ?>
@@ -276,5 +326,14 @@ setcookie("UserFormData", serialize($_POST), time()+120);
 </form>
 
 
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+<script type="text/javascript">
 
+$(document).ready(function (){
+
+
+})
+
+	
+</script>
 <?php include 'include/footer.php'; ?>
