@@ -1,4 +1,28 @@
+<?php 
+include 'db.php';
 
+$user_count ='0';
+$post_count = '0';
+$reply_count='0';
+$notice_count ='0';
+	
+	/*User Count*/
+	$user = "SELECT * FROM users";
+	$user_res = mysqli_query($con,$user);
+	$user_count = mysqli_num_rows($user_res);
+
+	/*Post Count*/
+	$post = "SELECT * FROM post";
+	$post_res = mysqli_query($con,$post);
+	$post_count = mysqli_num_rows($post_res);
+
+	/*Replies Count*/
+	$reply = "SELECT * FROM reply";
+	$reply_res = mysqli_query($con,$reply);
+	$reply_count = mysqli_num_rows($reply_res);
+
+
+ ?>
   	<div class="container-pane">
   	<div class="row" style="margin: auto">
   	<div class="col-md-3">
@@ -21,7 +45,7 @@
 			<div class="col align-self-center">
 			<div class="con">
 				<label class="box-lable">Total Users</label><br>
-				<label class="box-count">53</label><i class="fas fa-arrow-up ico"></i>
+				<label class="box-count"><?php echo $user_count ?></label><i class="fas fa-arrow-up ico"></i>
 				<br><br><br>
 				<button class="btn-profile"> View Details</button>
 			</div>
@@ -30,7 +54,7 @@
 				<div class="con">
 				<label class="box-lable">Total Notice</label>
 				<br>
-				<label class="box-count">12</label><i class="fas fa-arrow-up ico"></i>
+				<label class="box-count"><?php echo $notice_count ?></label><i class="fas fa-arrow-up ico"></i>
 				<br><br><br>
 				<button class="btn-profile"> View Details</button>
 			</div>
@@ -41,7 +65,7 @@
 			<div class="con">
 				<label class="box-lable">Total QnA</label>
 				<br>
-				<label class="box-count">23</label><i class="fas fa-arrow-up ico"></i>
+				<label class="box-count"><?php echo $post_count ?></label><i class="fas fa-arrow-up ico"></i>
 				<br><br><br>
 				<button class="btn-profile"> View Details</button>
 			</div>
@@ -51,7 +75,7 @@
 				<div class="con">
 				<label class="box-lable">Total Replies</label>
 				<br>
-				<label class="box-count">20</label><i class="fas fa-arrow-up ico"></i>
+				<label class="box-count"><?php echo $reply_count ?></label><i class="fas fa-arrow-up ico"></i>
 				<br><br><br>
 				<button class="btn-profile"> View Details</button>
 			</div>

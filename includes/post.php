@@ -98,7 +98,7 @@ if (isset($_GET['like'])) {
 				<div class="row">
 					<div class="col">
 				<a href="user.php?like=<?php echo $id ?>"><button class="btn-react"><i class="fas fa-thumbs-up"></i> Like</button></a>
-				<a href="qna.php?"><button class="btn-react"><i class="fas fa-reply"></i> Reply</button> </a>
+				<a href="qna.php?post_id=<?php echo $id;?>"><button class="btn-react"><i class="fas fa-reply"></i> Reply</button> </a>
 				</div>
 				<div class="col" style="text-align: right;">
 				<button class="btn-react"><i class="fas fa-share-square"></i> Share</button> 

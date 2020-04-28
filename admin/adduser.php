@@ -133,7 +133,7 @@ setcookie("UserFormData", serialize($_POST), time()+120);
 
 				}else{
 
-					$loginId = $sessionf.$course.'0'.$user;
+					$loginId = $sessionf.$course.'0'.$id;
 				}
 			
 			

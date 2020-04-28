@@ -228,6 +228,12 @@ footer{
 .ico{
 	margin-right: 6px; 
 }
+.btn-react.delete{
+
+	margin: 0 20px;
+
+
+}
 .btn-react{
 
 	background: none;
@@ -367,6 +373,7 @@ footer{
 	margin: 10px 30px;
 	font-size: 1.8rem;
 }
+
 .reply{
 	padding: 10px 20px;
 	border: 1px solid #d6d6d6;
@@ -469,4 +476,10 @@ text-decoration: none;
 }
 .generate-form{
 	margin-left: 10px;
+}
+.like{
+
+	font-size: 1.2rem;
+	padding: 0 100px;
+	margin-left: 50px;
 }
