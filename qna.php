@@ -28,9 +28,19 @@ if (isset($_GET['post_id'])) {
 	$like_query = "SELECT * FROM likes WHERE user_id ='$user' AND post_id='$post_id'";
 	$like_result = mysqli_query($con,$like_query);
 	$like_row = mysqli_num_rows($like_result);
-	if ($like_row == 1) {
-		$like_message = "You and ".($post_likes -1)." other like this.";
-	}else{
+
+	
+	if ($like_row == 1 && $post_likes >1) {
+
+		$like_message = "You and ".($post_likes-1)." other like this post.";
+
+	}elseif ($like_row == 1 && $post_likes == 1) {
+
+		$like_message = "You like this post.";
+	
+	}
+	else{
+
 		$like_message = $post_likes." people like this ";
 	}
 

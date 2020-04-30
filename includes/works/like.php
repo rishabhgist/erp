@@ -10,13 +10,13 @@ include '../db.php';
 			/*Checking for user likes*/
 
 
-			$check_like = "SELECT * FROM likes WHERE user_id='$user'";
+			$check_like = "SELECT * FROM likes WHERE user_id='$user' AND post_id='$post_id'";
 			$res = mysqli_query($con,$check_like);
 			$row = mysqli_num_rows($res);
 
 			if ($row == 1) {
 				
-			header("Location:../../qna.php?post_id=$post_id");
+				header("Location:../../qna.php?post_id=$post_id");
 
 			}else{
 

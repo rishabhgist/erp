@@ -480,6 +480,33 @@ text-decoration: none;
 .like{
 
 	font-size: 1.2rem;
-	padding: 0 100px;
-	margin-left: 50px;
+	padding: 0 10px;
+	margin-left: 10px;
+}
+.search-form{
+	margin: 5px 0;
+	width: 600px;
+}
+.form-control.search{
+
+	border: none;
+	margin: 0;
+
+}
+.btn.btn-light{
+
+	width: 100px;
+}
+/*Search Page*/
+.search-result{
+
+	margin: 6% 3% 0 3%;
+}
+.no-result{
+
+	padding: 40px 0 ;
+	
+}
+.err-img{
+	width: 200px;
 }

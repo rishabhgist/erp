@@ -5,6 +5,7 @@ include 'includes/nav.php';
 
 $user = $_SESSION['username'];
 $role = $_SESSION['role'];
+$err_message = '';
 
 if ($_SESSION['username']) {
 
@@ -55,7 +56,34 @@ if ($_SESSION['username']) {
             $_SESSION['profile_error'] = "Profile not found";
         }
 
+if (isset($_POST['save'])) {
+	
+	$old = $_POST['oldPassword'];
+	$new = $_POST['newPassword'];
 
+	$old = mysqli_real_escape_string($con,$old);
+	$new = mysqli_real_escape_string($con,$new);
+
+	$check_password = "SELECT password FROM users WHERE loginId='$user'";
+	$check_result = mysqli_query($con,$check_password);
+	$row = mysqli_fetch_assoc($check_result);
+	$db_pwd = $row['password'];
+
+	if ($old == $db_pwd) {
+		
+
+		$update_password = "UPDATE users SET password = '$new' WHERE loginId='$user'";
+		$result_update = mysqli_query($con,$update_password);
+		$err_message = '<div class="alert alert-success" role="alert">Password Updated</div>';
+
+	}else{
+
+		$err_message = '<div class="alert alert-danger" role="alert"> Old Password Incorrect !!</div>';
+	}
+
+
+
+}
 ?>
 
 <div class="basic-details">
@@ -103,8 +131,24 @@ if ($_SESSION['username']) {
 	    	</div>
 	    </div>
 	</div>
-	<div>
-		<button class="btn-profile btn-change">Change Password</button>
+	<div class="row" style="margin: auto">
+		<div class="col-3">
+		<button class="btn-profile btn-change" onclick="formactive();" id="cng-btn">Change Password</button>
+		</div>
+		<?php echo $err_message; ?>
+		<div class="col-9 display" id="passwordChangeForm" >
+		<form class="form-group row" method="post" >			
+			<div class="col-4">
+			<input type="password" name="oldPassword" class="form-control" placeholder="Enter Old Password ">
+			</div>
+			<div class="col-4">
+			<input type="password" name="newPassword" class="form-control" placeholder="Enter New Password">
+			</div>
+			<div class="col-3">
+			<button class="btn-profile" name="save">Save</button>
+			</div>
+		</form>
+		</div>
 	</div>
 
  </div>
@@ -165,3 +209,11 @@ if ($_SESSION['username']) {
 
 
 <?php include 'includes/footer.php'; ?>
+<script type="text/javascript">
+	
+	function formactive() {
+
+		$('#cng-btn').addClass("display");
+		$('#passwordChangeForm').removeClass("display");
+	}
+</script>

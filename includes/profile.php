@@ -9,6 +9,8 @@
 				<p><i class="fas fa-envelope ico"></i> <?php echo $email ?></p>
 				<p><i class="fas fa-mobile ico"></i> +91 - <span> <?php echo $mobile ?></span></p>
 				<hr class="post-hr">
-				<center><a href="profile"><button class="btn-profile">Edit Profile</button></a></center>
+				<center><a href="profile.php"><button class="btn-profile">Edit Profile</button></a></center>
 			</div>
 		</div>
+
+

@@ -5,49 +5,6 @@ $_SESSION['username'];
 
 	$post_query = "SELECT * FROM post ORDER BY id DESC";
 	$result = mysqli_query($con,$post_query);
- 
-
-/*Like button Functionality*/
-
-if (isset($_GET['like'])) {
-
-	$id = $_GET['like'];
-	$user = $_SESSION['username'];
-	$query = "SELECT * FROM likes WHERE user_id = '$user' AND post_id = '$id'";
-	$result = mysqli_query($con,$query);
-	$row = mysqli_fetch_assoc($result);
-	$val = mysqli_num_rows($result);
-
-
-	$curr_like = $row['likes'];	
-
-	if ($val == 0) {
-
-		$curr_like = $curr_like + 1;
-		$like = "INSERT INTO likes (likes,post_id,user_id) VALUES ('$curr_like','$id','$user')";
-		$res_like = mysqli_query($con,$like);
-
-		/*	Check Likes*/
-
-		$check_like = "SELECT likes FROM post WHERE id = '$id'";
-		$res_like = mysqli_query($con,$check_like);
-		$rw = mysqli_fetch_assoc($res_like);
-
-			$curr = $rw['likes'];
-
-		/*inserting like*/
-
-		$save_like = "INSERT INTO post(likes) VALUES('$curr+1')";
-		$rsave_like = mysqli_query($con,$save_like);
-		
-		header('location:user');
-	}
-}
-
-
-
-
-
 ?>
 
 <div class="qa-post col-md-5">
@@ -76,6 +33,11 @@ if (isset($_GET['like'])) {
 
 						$i++;
 
+						if ($post_like < 1) {
+							$post_like = "0 People like this.";
+						}else{
+							$post_like = $post_like."&nbsp;People like this.";
+						}
 
 			?>
 
@@ -97,7 +59,7 @@ if (isset($_GET['like'])) {
 			<hr class="hr-post">
 				<div class="row">
 					<div class="col">
-				<a href="user.php?like=<?php echo $id ?>"><button class="btn-react"><i class="fas fa-thumbs-up"></i> Like</button></a>
+				<a href="includes/works/like.php?post_id=<?php echo $id ?>&user=<?php echo $_SESSION['username']?>"><button class="btn-react"><i class="fas fa-thumbs-up"></i> Like</button></a>
 				<a href="qna.php?post_id=<?php echo $id;?>"><button class="btn-react"><i class="fas fa-reply"></i> Reply</button> </a>
 				</div>
 				<div class="col" style="text-align: right;">

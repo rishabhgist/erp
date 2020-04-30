@@ -2,6 +2,7 @@
 
 if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'teacher') {
  $user = 'user';
+
 }else{
 
   $user = 'admin';
@@ -35,8 +36,24 @@ if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'admin' ) {
             <li class="nav-item">
                 <a href="post.php" class="nav-link">Ask Question</a>
             </li>
+            <!-- Search Form -->
+            <li> 
+            <form method="post" class="search-form" action="search.php">
+              <div class="row" style="margin: auto;">
+                <div class="col-9">
+                    <input type="text" name="search_text" placeholder="Search Question !" class="form-control search">
+                  </div>
+                  <div class="col-3" style="padding: 0;">
+                    <button class="btn btn-light" name="search">Search</button>
+                  </div>
+                </div>
+              </form>
+            </li>
           </ul>
+          
+
 <?php 
+
 }elseif ($_SESSION['role'] == 'teacher' || $_SESSION['role'] == 'admin') {
 
    if ($_SESSION['role'] == 'teacher') {
@@ -44,21 +61,8 @@ if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'admin' ) {
     }elseif ($_SESSION['role'] == 'admin') {
       $user="admin";
     }
-  
- ?>         <nav class="navbar fixed-top navbar-expand row">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a href="<?php echo $user ?>" class="nav-link">HOME</a>
-            </li>
-            <li class="nav-item">
-                <a href="notice.php" class="nav-link">NOTICE</a>
-            </li>
-            <li class="nav-item">
-                <a href="library.php" class="nav-link">LIBRARY</a>
-            </li>
-            <li class="nav-item">
-                <a href="post.php" class="nav-link">Ask Question</a>
-            </li>
+
+ ?>        
             <li class="nav-item">
                 <a href="timetable.php" class="nav-link">Timetable</a>
             </li>
@@ -66,6 +70,7 @@ if ($_SESSION['role'] == 'student' || $_SESSION['role'] == 'admin' ) {
             
         </ul>
 <?php } ?>
+
         <ul class="col-md-2 nav-profile">
            <li class="nav-item nav-profile">
             <div class="dropdown-container">
