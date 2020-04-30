@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 25, 2020 at 02:46 PM
+-- Generation Time: Apr 30, 2020 at 07:54 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -43,18 +43,16 @@ CREATE TABLE IF NOT EXISTS `education` (
   `grad_percent` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginId` (`loginId`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `education`
 --
 
 INSERT INTO `education` (`id`, `loginId`, `highschool_school`, `highschool_board`, `highschool_percent`, `inter_school`, `inter_board`, `inter_percent`, `grad_school`, `grad_board`, `grad_percent`) VALUES
-(1, '2017BCA025', 'Godwin Public School', 'CBSE', '80', 'Godwin Public School', 'CBSE', '80', 'Dewan Institute of Management Studies', 'CBSE', '80'),
-(11, '2017BBA010', 'Godwin Public School', 'CBSE', '80', 'Meerut Public School', 'CBSE', '70', 'Vidya Institute of Technology', 'CCSU', '80'),
-(6, '2017BCA026', 'Godwin Public School', 'CBSE', '70', 'Godwin Public School', 'CBSE', '75', 'Dewan Institute of Managment Studies', 'CCSU', '80'),
-(14, '2017BCA022', 'Subash Inter College', 'U P Board', '82', 'Modi Public School', 'CBSE', '80', 'MIET', 'AKTU', '72'),
-(13, '2017BCA030', 'Meerut Public School', 'CBSE', '80', 'Godwin Public School', 'CBSE', '70', 'Vidya Institute of Technology', 'CSSU', '75');
+(22, '2017BCA022', 'GT Public School', 'CBSE', '80', 'GT Public School', 'CBSE', '85', 'Dewan Institute of Managment Studies', 'CCSU', '70'),
+(23, '2017BCA023', 'Godwin Public School', 'CBSE', '67', 'Godwin Public School', 'CBSE', '74', 'Dewan Institute of Management Studies', 'CCSU', '60'),
+(24, '2017BCA024', 'Godwin Public School', 'CBSE', '81', 'Godwin Public School', 'CBSE', '90', 'Dewan Institute of Managment Studies', 'CCSU', '90');
 
 -- --------------------------------------------------------
 
@@ -65,20 +63,20 @@ INSERT INTO `education` (`id`, `loginId`, `highschool_school`, `highschool_board
 DROP TABLE IF EXISTS `likes`;
 CREATE TABLE IF NOT EXISTS `likes` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
-  `post_id` varchar(100) DEFAULT NULL,
-  `user_id` varchar(100) DEFAULT NULL,
   `likes` int(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `post_id` (`post_id`),
-  UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `post_id` varchar(100) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `likes`
 --
 
-INSERT INTO `likes` (`id`, `post_id`, `user_id`, `likes`) VALUES
-(5, '19', '2017BCA020', 1);
+INSERT INTO `likes` (`id`, `likes`, `post_id`, `user_id`) VALUES
+(9, 1, '23', '2017BCA022'),
+(10, 1, '23', '2017BCA023'),
+(15, 1, '22', '2017BCA022');
 
 -- --------------------------------------------------------
 
@@ -95,19 +93,17 @@ CREATE TABLE IF NOT EXISTS `post` (
   `likes` varchar(100) DEFAULT NULL,
   `status` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `post`
 --
 
 INSERT INTO `post` (`id`, `posted_by`, `post_title`, `post_date`, `likes`, `status`) VALUES
-(17, '2017BCA029', 'What is 2D Array?', '24/04/2020', '', 'active'),
-(16, '2017BCA029', 'What is RDBMS?', '22/04/2020', '', 'active'),
-(15, '2017BCA029', 'What is Java?', '22/04/2020', '', 'active'),
-(14, '2017BCA029', 'What is C?', '22/04/2020', '', 'active'),
-(13, '2017BCA020', 'What is Array ?', '22/04/2020', '', 'active'),
-(19, '2017BCA020', 'What is Recursion?', '25/04/2020', '0', 'draft');
+(23, '2017BCA023', 'What are pointers?', '28/04/2020', '2', 'draft'),
+(22, '2017BCA022', 'What is Variables?', '28/04/2020', '1', 'draft'),
+(21, '2017BCA022', 'What is Recusion?', '28/04/2020', '0', 'draft'),
+(20, '2017BCA022', 'What is Array ?', '28/04/2020', '0', 'draft');
 
 -- --------------------------------------------------------
 
@@ -119,11 +115,19 @@ DROP TABLE IF EXISTS `reply`;
 CREATE TABLE IF NOT EXISTS `reply` (
   `id` int(100) NOT NULL AUTO_INCREMENT,
   `reply_by` varchar(100) NOT NULL,
-  `reply` varchar(100) NOT NULL,
+  `reply` varchar(225) NOT NULL,
   `reply_date` varchar(100) NOT NULL,
+  `post_id` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `reply_by` (`reply_by`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `reply`
+--
+
+INSERT INTO `reply` (`id`, `reply_by`, `reply`, `reply_date`, `post_id`) VALUES
+(2, '2017BCA022', 'A pointer is a programming language object that stores a memory address. This can be that of another value located in computer memory, or in some cases, that of memory mapped computer hardware', '28/04/2020', '23');
 
 -- --------------------------------------------------------
 
@@ -174,19 +178,17 @@ CREATE TABLE IF NOT EXISTS `userdata` (
   `address2` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginId` (`loginId`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `userdata`
 --
 
 INSERT INTO `userdata` (`id`, `loginId`, `course`, `fname`, `lname`, `father`, `mother`, `email`, `mobile`, `dob`, `session_from`, `session_to`, `address1`, `address2`) VALUES
-(1, '2017BCA029', 'BCA', 'Praveen', 'Kumar', 'Narendra Modi', 'Indra Gandhi', 'pkcool786@gmail.com', '7983294650', '15-03-1999', '2017', '2020', '0', '0'),
-(2, '2017BCA020', 'BCA', 'Divya', 'Tiwari', 'Sadiq Ansari', 'Komal Chaudhary', 'divyatiwari@erp.com', '7017282266', '17-03-1993', '', '', '0', '0'),
 (4, '2017BCA025', 'BCA', 'Rishabh', 'Gist', 'Father', 'Mother', 'rishabhgist@gmail.com', '7983294650', '07-01-1999', '2017', '2020', 'B 61 Gokul Vihar ', 'Rohta Road Merrut'),
-(5, '2017BCA026', 'BCA', 'Sadiq', 'Ansari', 'Jahangir', 'Mother', 'sadiq8193@gmail.com', '7983294650', '22-07-2000', '2017', '2020', 'Vill Shobhapur ', 'Rohta Road, Meerut'),
-(6, '2017BCA030', 'BCA', 'Abhishek', 'Bhardwaj', 'Bijender', 'Suman', 'abhishekbhar@gmail.com', '9026771213', '18-10-1999', '2017', '2020', '132 Krishna Colony, Fazalpur', 'Rohta Road, Meerut'),
-(7, '2017BCA022', 'BCA', 'Mukesh', 'Verma', 'Jignesh Verma', 'Sunita Verma', 'mukeshverma@hotmail.com', '7080125463', '26-03-1976', '', '', '14 A Sushant City', 'Rohta Road, Meerut');
+(22, '2017BCA022', 'BCA', 'Praveen', 'Kumar', 'Narendra Modi', 'Indra Gandhi', 'pkcool12@gmail.com', '8191225463', '26-10-2000', '2017', '2020', '12 Krishna Colony', 'Modipuram, Meerut'),
+(23, '2017BCA023', 'BCA', 'Sadiq', 'Ansari', 'Jahangir Ali', 'Mumtaz', 'sadiq8193@gmail.com', '7017282266', '20-07-1999', '2017', '2020', 'Vill Post Shobhapur', 'Rohta Bypass, Meerut'),
+(24, '2017BCA024', 'BCA', 'Rishabh', 'Gist', 'Chandeswar Prasad', 'Seema Devi', 'rishabhgist@gmail.com', '7983294650', '07-01-1999', '2017', '2020', 'B 61 Gokul Vihar', 'Rohta Road, Meerut');
 
 -- --------------------------------------------------------
 
@@ -202,19 +204,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `role` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `loginId` (`loginId`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `loginId`, `password`, `role`) VALUES
-(1, 'admin', 'admin', 'admin'),
-(29, '2017BCA029', 'student', 'student'),
-(20, '2017BCA020', 'teacher', 'teacher'),
-(26, '2017BCA026', '2892', 'student'),
-(30, '2017BCA030', '2065', 'student'),
-(31, '2017BCA022', '3777', 'teacher');
+(21, 'admin', 'admin', 'admin'),
+(24, '2017BCA024', '12345', 'student'),
+(23, '2017BCA023', 'sadiq', 'student'),
+(22, '2017BCA022', 'praveen', 'student');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
